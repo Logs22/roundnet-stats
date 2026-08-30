@@ -1,0 +1,7 @@
+# Roundnet Friends Roster (Example Template)
+# Copy this file to 'friends.txt' and add your player names, one per line.
+# Lines starting with # are ignored.
+
+Player Name 1
+Player Name 2
+Player Name 3
