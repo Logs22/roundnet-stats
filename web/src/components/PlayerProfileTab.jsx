@@ -1,13 +1,13 @@
 import React, { useState, useMemo } from 'react';
-import { User, Trophy, Calendar, MapPin, ChevronDown, ChevronUp, Users, Shield, Search, Share2, Check, TrendingUp } from 'lucide-react';
+import { User, Trophy, Calendar, MapPin, ChevronDown, ChevronUp, Users, Shield, Search, Share2, Check, TrendingUp, Zap } from 'lucide-react';
 import MatchCard from './MatchCard.jsx';
+import { getDivisionTier } from './LeaderboardTab.jsx';
 
 export default function PlayerProfileTab({ friends, matches, tournaments, selectedPlayerName, onSelectPlayer }) {
   const selectedPlayer = selectedPlayerName || friends[0] || 'Logan Graham';
   const [stageFilter, setStageFilter] = useState('all');
   const [tournamentSearch, setTournamentSearch] = useState('');
   const [expandedTournaments, setExpandedTournaments] = useState({});
-  const [playerSearchQuery, setPlayerSearchQuery] = useState('');
   const [copiedToast, setCopiedToast] = useState(false);
 
   const handleCopyShare = () => {
@@ -18,12 +18,6 @@ export default function PlayerProfileTab({ friends, matches, tournaments, select
       setTimeout(() => setCopiedToast(false), 2500);
     }
   };
-
-  const filteredFriendsList = useMemo(() => {
-    if (!playerSearchQuery) return friends;
-    const q = playerSearchQuery.toLowerCase();
-    return friends.filter(f => f.toLowerCase().includes(q));
-  }, [friends, playerSearchQuery]);
 
   const tournLookup = useMemo(() => {
     const map = {};
@@ -139,11 +133,15 @@ export default function PlayerProfileTab({ friends, matches, tournaments, select
     let wins = 0;
     let ties = 0;
     let losses = 0;
+    let totalWeight = 0;
 
     const partnerCounts = {};
     const rivalCounts = {};
 
     playerMatches.forEach(m => {
+      const divInfo = getDivisionTier(m.division);
+      totalWeight += divInfo.weight;
+
       const pInT1 = m.team1_players?.toLowerCase().includes(p);
       const isWinner = m.winner_players?.toLowerCase().includes(p);
       const isTie = m.winner_team === 'None/Tie' || m.winner_team === 'Tie' || !m.winner_players;
@@ -182,8 +180,10 @@ export default function PlayerProfileTab({ friends, matches, tournaments, select
 
     const winPct = playerMatches.length ? Math.round((wins / playerMatches.length) * 1000) / 10 : 0;
     const pointsPct = playerMatches.length ? Math.round(((wins + 0.5 * ties) / playerMatches.length) * 1000) / 10 : 0;
+    const avgDiff = playerMatches.length ? Math.round((totalWeight / playerMatches.length) * 100) / 100 : 1.0;
+    const powerRating = Math.round(pointsPct * avgDiff * 10) / 10;
 
-    return { wins, ties, losses, winPct, pointsPct, topPartners, topRivals };
+    return { wins, ties, losses, winPct, pointsPct, avgDiff, powerRating, topPartners, topRivals };
   }, [playerMatches, selectedPlayer]);
 
   const toggleTournament = (tid) => {
@@ -256,7 +256,7 @@ export default function PlayerProfileTab({ friends, matches, tournaments, select
               </button>
             </div>
 
-            {/* Searchable Player Picker */}
+            {/* Searchable Player Picker + Form Badge */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-1">
               <select
                 value={selectedPlayer}
@@ -273,7 +273,6 @@ export default function PlayerProfileTab({ friends, matches, tournaments, select
                 ))}
               </select>
 
-              {/* Recent Form Badge */}
               {recentForm.matches.length > 0 && (
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#0B0F17] border border-slate-200 dark:border-slate-800 text-xs mt-1 sm:mt-0">
                   <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1">
@@ -304,24 +303,40 @@ export default function PlayerProfileTab({ friends, matches, tournaments, select
             </div>
           </div>
 
-          {/* Quick Stat Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 w-full lg:w-auto">
-            <div className="bg-slate-50 dark:bg-[#0B0F17] border border-slate-300 dark:border-slate-800 p-2.5 sm:p-3.5 rounded-xl text-center min-w-[85px]">
-              <div className="text-[10px] sm:text-[11px] text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider">Tournaments</div>
+          {/* Quick Stat Cards (Including Power Rating) */}
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-2.5 w-full lg:w-auto">
+            {/* Power Rating Card */}
+            <div className="bg-amber-500/10 dark:bg-amber-400/5 border border-amber-300/80 dark:border-amber-500/30 p-2.5 sm:p-3 rounded-xl text-center min-w-[80px]">
+              <div className="text-[10px] text-amber-900 dark:text-[#FFE492] font-bold uppercase tracking-wider flex items-center justify-center gap-1">
+                <Zap className="w-3 h-3 text-amber-600 dark:text-[#FFE492]" /> Power
+              </div>
+              <div className="text-xl sm:text-2xl font-black text-amber-900 dark:text-[#FFE492] mt-0.5 tabular-nums">
+                {analytics.powerRating}
+              </div>
+              <div className="text-[9px] text-slate-500 dark:text-slate-400 font-mono mt-0.5">
+                {analytics.avgDiff}x diff
+              </div>
+            </div>
+
+            <div className="bg-slate-50 dark:bg-[#0B0F17] border border-slate-300 dark:border-slate-800 p-2.5 sm:p-3 rounded-xl text-center min-w-[80px]">
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider">Tourneys</div>
               <div className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-0.5 tabular-nums">{tournamentGroups.length}</div>
             </div>
-            <div className="bg-slate-50 dark:bg-[#0B0F17] border border-slate-300 dark:border-slate-800 p-2.5 sm:p-3.5 rounded-xl text-center min-w-[85px]">
-              <div className="text-[10px] sm:text-[11px] text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider">Matches</div>
+
+            <div className="bg-slate-50 dark:bg-[#0B0F17] border border-slate-300 dark:border-slate-800 p-2.5 sm:p-3 rounded-xl text-center min-w-[80px]">
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider">Matches</div>
               <div className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-0.5 tabular-nums">{playerMatches.length}</div>
             </div>
-            <div className="bg-slate-50 dark:bg-[#0B0F17] border border-slate-300 dark:border-slate-800 p-2.5 sm:p-3.5 rounded-xl text-center min-w-[85px]">
-              <div className="text-[10px] sm:text-[11px] text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider">Record</div>
+
+            <div className="bg-slate-50 dark:bg-[#0B0F17] border border-slate-300 dark:border-slate-800 p-2.5 sm:p-3 rounded-xl text-center min-w-[80px]">
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider">Record</div>
               <div className="text-base sm:text-lg font-mono font-bold text-slate-900 dark:text-cyan-300 mt-1 tabular-nums">
                 {analytics.wins}-{analytics.losses}-{analytics.ties}
               </div>
             </div>
-            <div className="bg-slate-50 dark:bg-[#0B0F17] border border-slate-300 dark:border-slate-800 p-2.5 sm:p-3.5 rounded-xl text-center min-w-[85px]">
-              <div className="text-[10px] sm:text-[11px] text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider">Points %</div>
+
+            <div className="bg-slate-50 dark:bg-[#0B0F17] border border-slate-300 dark:border-slate-800 p-2.5 sm:p-3 rounded-xl text-center min-w-[80px]">
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider">Points %</div>
               <div className="text-xl sm:text-2xl font-black text-amber-800 dark:text-[#FFE492] mt-0.5 tabular-nums">{analytics.pointsPct}%</div>
             </div>
           </div>
