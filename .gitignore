@@ -28,6 +28,9 @@ Thumbs.db
 *.swp
 *.swo
 
+*.zip
+*.tar.gz
+
 # Private roster & secrets (kept local only)
 friends.txt
 .env

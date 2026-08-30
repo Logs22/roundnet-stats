@@ -18,13 +18,12 @@
 
 ## 2. Roster & Identity Mapping
 
-The roster is defined in `friends.txt` (currently 32 friends, 36 tournaments, 6,738 matches).
+The roster is defined in `friends.txt` (which is kept local and ignored by git to protect privacy).
 Special Fwango ID and alias mappings implemented in `sync_roundnet.py` and `PlayerProfileTab.jsx`:
 - **Patrick Flynn**: Fwango ID `Phi1BtY7XgZ6V5ObV4CZE5NsSEr2` (also aliases "Pat Flynn")
 - **Aiden Gill**: Fwango ID `tMCRyrGHCxZ45oV9L2wxFJYqYcz2` (also aliases "Aidan Gill")
 - **Whitney Aaron**: Fwango ID `7nJkpG5foQWj8ZL05CbTF8D7rJg1` (also aliases "Whitney Graham")
 - **Austin Klosterman**: Dual accounts `3Vji0DuSTjYMSbKyeZLjNTvPPAf2` & `5yEKcxJG3cOqomvxMhjaQIbtEdG3`
-- Full friends list: Logan Graham, Logan Bittner, Alex Aaron, Sean Hennigan, Evan Talley, Patrick Flynn, Preston Murray, Preston Winiger, Connor Wallace, Aiden Gill, Mack Medert, Whitney Aaron, Gabby Schwaninger, Austin Klosterman, Kyle Weinberg, Grant Barnhill, Kylie Anderson, Jason Reid, Zach Smith, Bryson Stanfill, Jonas Isaacs, Patrick Butler, Joseph Berger, Hunter Smith, Will Blackburn, Braden Blackburn, Carter Capek, Ethan Watkins, Toby Zorn, Silas McDaniel, Eric Speagle.
 
 ---
 
