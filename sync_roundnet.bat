@@ -13,6 +13,14 @@ cd /d %~dp0web
 call npm run build
 echo.
 echo ==================================================
-echo Sync & Build Complete! Refresh your browser.
+echo Publishing update to GitHub / Vercel...
+echo ==================================================
+cd /d %~dp0
+git add export web/src/data/roundnet_data.json
+git commit -m "Auto-sync tournament statistics payload"
+git push origin main
+echo.
+echo ==================================================
+echo Sync Complete! Vercel is deploying your updates.
 echo ==================================================
 pause
