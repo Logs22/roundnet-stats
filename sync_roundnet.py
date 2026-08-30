@@ -8,9 +8,7 @@ from datetime import datetime
 # ==============================================================================
 # Fwango Cloud Configuration
 # ==============================================================================
-import base64
-
-# Load .env if present (ignored by git)
+# Load environment variables from local .env file (kept strictly local via .gitignore)
 _env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
 if os.path.exists(_env_path):
     try:
@@ -22,11 +20,7 @@ if os.path.exists(_env_path):
     except Exception:
         pass
 
-# Fwango public client key (obfuscated to prevent false-positive GitHub Secret Scanning blocks)
-API_KEY = os.environ.get(
-    "FWANGO_API_KEY",
-    base64.b64decode(b"QUl6YVN5QW1mbWlhZ1pGN0ZhZ3Bnc1ZuUW95ZXRFQzRrNHQyTDkw").decode("utf-8")
-)
+API_KEY = os.environ.get("FWANGO_API_KEY", "")
 FIRESTORE_URL = "https://firestore.googleapis.com/v1/projects/roundnet-4e9b0/databases/(default)/documents"
 RUN_QUERY_URL = f"{FIRESTORE_URL}:runQuery?key={API_KEY}"
 TEAM_STATS_URL = "https://us-central1-roundnet-4e9b0.cloudfunctions.net/team-getTeamStatistics"
