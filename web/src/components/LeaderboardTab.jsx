@@ -57,12 +57,10 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
       });
     }
 
-    // Name search
     if (searchTerm) {
       data = data.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
     }
 
-    // Stat threshold filtering
     if (minMatches > 0) {
       data = data.filter(p => p.matches_played >= minMatches);
     }
@@ -98,41 +96,42 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
   };
 
   return (
-    <div className="space-y-6">
-      {/* Banner */}
-      <div className="bg-white dark:bg-[#151D2C] border border-slate-300 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm dark:shadow-xl transition-colors">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-2.5 bg-amber-100 text-amber-900 border border-amber-200 dark:bg-amber-500/10 dark:text-amber-300 dark:border-amber-500/20">
-              <Trophy className="w-3.5 h-3.5" />
-              Roundnet Standings
-            </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Crew Leaderboard
-            </h1>
-            <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-1.5 max-w-xl">
-              Rankings, records, and win rates across all {leaderboard.length} friends and {tournamentsCount || 0} tournaments.
-            </p>
+    <div className="space-y-4 sm:space-y-6">
+      {/* Banner & Filter Controls */}
+      <div className="bg-white dark:bg-[#151D2C] border border-slate-300 dark:border-slate-800 rounded-2xl p-4 sm:p-7 shadow-sm dark:shadow-xl transition-colors">
+        <div>
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider mb-2 bg-amber-100 text-amber-900 border border-amber-200 dark:bg-amber-500/10 dark:text-amber-300 dark:border-amber-500/20">
+            <Trophy className="w-3.5 h-3.5" />
+            Roundnet Standings
+          </div>
+          <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Crew Leaderboard
+          </h1>
+          <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1 max-w-xl">
+            Rankings, records, and win rates across all {leaderboard.length} friends and {tournamentsCount || 0} tournaments.
+          </p>
+        </div>
+
+        {/* Search + Stage Toggle + Filter Button */}
+        <div className="mt-4 grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-2.5 sm:gap-3">
+          {/* Search */}
+          <div className="relative flex-1 min-w-[180px]">
+            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
+            <input
+              type="text"
+              placeholder="Find a friend..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-9 pr-4 py-2 bg-slate-50 dark:bg-[#0B0F17] border border-slate-300 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:border-slate-900 dark:focus:border-cyan-400"
+            />
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
-            {/* Search */}
-            <div className="relative flex-1 md:w-56">
-              <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
-              <input
-                type="text"
-                placeholder="Find a friend..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-[#0B0F17] border border-slate-300 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:border-slate-900 dark:focus:border-cyan-400 transition-all"
-              />
-            </div>
-
+          <div className="flex items-center gap-2 justify-between sm:justify-start">
             {/* Stage Filter */}
             <div className="bg-slate-100 dark:bg-[#0B0F17] p-1 rounded-xl border border-slate-200 dark:border-slate-800 flex text-xs font-semibold">
               <button
                 onClick={() => setStageFilter('all')}
-                className={`px-3.5 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
                   stageFilter === 'all' 
                     ? 'bg-slate-900 text-white shadow-sm dark:bg-cyan-400 dark:text-[#0B0F17] dark:font-bold' 
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -142,7 +141,7 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
               </button>
               <button
                 onClick={() => setStageFilter('bracket')}
-                className={`px-3.5 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
                   stageFilter === 'bracket' 
                     ? 'bg-slate-900 text-white shadow-sm dark:bg-cyan-400 dark:text-[#0B0F17] dark:font-bold' 
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -152,25 +151,24 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
               </button>
               <button
                 onClick={() => setStageFilter('group')}
-                className={`px-3.5 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
                   stageFilter === 'group' 
                     ? 'bg-slate-900 text-white shadow-sm dark:bg-cyan-400 dark:text-[#0B0F17] dark:font-bold' 
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
-                Pool Play
+                Pool
               </button>
             </div>
 
             {/* Advanced Filters Button */}
             <button
               onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-              className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border text-xs font-bold transition-all cursor-pointer shadow-sm ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-bold transition-all cursor-pointer shadow-sm ${
                 showAdvancedFilters || activeFiltersCount > 0
                   ? 'bg-slate-900 text-white border-slate-900 dark:bg-cyan-400 dark:text-[#0B0F17] dark:border-cyan-400'
                   : 'bg-slate-50 dark:bg-[#0B0F17] border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-slate-500'
               }`}
-              title="Filter by Match Count, Win %, Points %, Wins"
             >
               <SlidersHorizontal className="w-3.5 h-3.5" />
               <span>Filters</span>
@@ -184,25 +182,25 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
         </div>
 
         {/* Quick Min-Matches Pill Bar */}
-        <div className="mt-5 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="font-bold text-slate-600 dark:text-slate-400 mr-1 uppercase tracking-wider text-[11px]">
+        <div className="mt-4 pt-3.5 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none text-xs">
+            <span className="font-bold text-slate-500 dark:text-slate-400 mr-1 text-[11px] uppercase tracking-wider shrink-0">
               Min Matches:
             </span>
             {[
               { label: 'All', value: 0 },
-              { label: '5+ Matches', value: 5 },
-              { label: '10+ Matches', value: 10 },
-              { label: '25+ Matches', value: 25 },
-              { label: '50+ Matches', value: 50 },
+              { label: '5+', value: 5 },
+              { label: '10+', value: 10 },
+              { label: '25+', value: 25 },
+              { label: '50+', value: 50 },
             ].map(pill => (
               <button
                 key={pill.value}
                 onClick={() => setMinMatches(pill.value)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                className={`px-2.5 py-0.5 rounded-full text-xs font-semibold transition-all shrink-0 cursor-pointer ${
                   minMatches === pill.value
                     ? 'bg-slate-900 text-white dark:bg-cyan-400 dark:text-[#0B0F17] dark:font-bold shadow-sm'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800/80 dark:text-slate-300 dark:hover:bg-slate-700'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800/80 dark:text-slate-300'
                 }`}
               >
                 {pill.label}
@@ -210,14 +208,14 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
             ))}
           </div>
 
-          <div className="text-xs font-medium text-slate-600 dark:text-slate-400 flex items-center gap-2">
+          <div className="text-xs font-medium text-slate-600 dark:text-slate-400 flex items-center justify-between sm:justify-end gap-2 shrink-0">
             <span>
-              Showing <strong className="text-slate-900 dark:text-white font-bold">{filteredLeaderboard.length}</strong> of {leaderboard.length} players
+              Showing <strong className="text-slate-900 dark:text-white font-bold">{filteredLeaderboard.length}</strong> of {leaderboard.length}
             </span>
             {(activeFiltersCount > 0 || searchTerm || stageFilter !== 'all') && (
               <button
                 onClick={resetFilters}
-                className="text-amber-800 dark:text-cyan-300 font-bold hover:underline inline-flex items-center gap-1 cursor-pointer ml-1"
+                className="text-amber-800 dark:text-cyan-300 font-bold hover:underline inline-flex items-center gap-0.5 cursor-pointer ml-1 text-xs"
               >
                 <RotateCcw className="w-3 h-3" /> Reset
               </button>
@@ -227,11 +225,11 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
 
         {/* Expandable Advanced Filter Drawer */}
         {showAdvancedFilters && (
-          <div className="mt-4 p-5 bg-slate-50 dark:bg-[#0B0F17] border border-slate-200 dark:border-slate-800 rounded-xl animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-800">
+          <div className="mt-3 p-4 bg-slate-50 dark:bg-[#0B0F17] border border-slate-200 dark:border-slate-800 rounded-xl">
+            <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-200 dark:border-slate-800">
               <div className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-white flex items-center gap-2">
                 <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600 dark:text-cyan-400" />
-                Filter by Performance Thresholds
+                Performance Thresholds
               </div>
               <button
                 onClick={() => setShowAdvancedFilters(false)}
@@ -241,12 +239,11 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {/* Min Matches */}
-              <div className="bg-white dark:bg-[#151D2C] p-3.5 rounded-xl border border-slate-200 dark:border-slate-700/60">
-                <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-                  <span>Min Matches Played</span>
-                  <span className="font-mono text-slate-900 dark:text-cyan-300 text-sm font-extrabold">{minMatches}</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div className="bg-white dark:bg-[#151D2C] p-3 rounded-xl border border-slate-200 dark:border-slate-700/60">
+                <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  <span>Min Matches</span>
+                  <span className="font-mono text-slate-900 dark:text-cyan-300 font-extrabold">{minMatches}</span>
                 </div>
                 <input
                   type="range"
@@ -257,18 +254,12 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
                   onChange={(e) => setMinMatches(Number(e.target.value))}
                   className="w-full accent-slate-900 dark:accent-cyan-400 cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-mono">
-                  <span>0</span>
-                  <span>50</span>
-                  <span>100+</span>
-                </div>
               </div>
 
-              {/* Min Win % */}
-              <div className="bg-white dark:bg-[#151D2C] p-3.5 rounded-xl border border-slate-200 dark:border-slate-700/60">
-                <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+              <div className="bg-white dark:bg-[#151D2C] p-3 rounded-xl border border-slate-200 dark:border-slate-700/60">
+                <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                   <span>Min Win Rate %</span>
-                  <span className="font-mono text-slate-900 dark:text-cyan-300 text-sm font-extrabold">{minWinPct}%</span>
+                  <span className="font-mono text-slate-900 dark:text-cyan-300 font-extrabold">{minWinPct}%</span>
                 </div>
                 <input
                   type="range"
@@ -279,18 +270,12 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
                   onChange={(e) => setMinWinPct(Number(e.target.value))}
                   className="w-full accent-slate-900 dark:accent-cyan-400 cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-mono">
-                  <span>0%</span>
-                  <span>40%</span>
-                  <span>80%</span>
-                </div>
               </div>
 
-              {/* Min Points % */}
-              <div className="bg-white dark:bg-[#151D2C] p-3.5 rounded-xl border border-slate-200 dark:border-slate-700/60">
-                <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+              <div className="bg-white dark:bg-[#151D2C] p-3 rounded-xl border border-slate-200 dark:border-slate-700/60">
+                <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                   <span>Min Points %</span>
-                  <span className="font-mono text-amber-800 dark:text-[#FFE492] text-sm font-extrabold">{minPointsPct}%</span>
+                  <span className="font-mono text-amber-800 dark:text-[#FFE492] font-extrabold">{minPointsPct}%</span>
                 </div>
                 <input
                   type="range"
@@ -301,18 +286,12 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
                   onChange={(e) => setMinPointsPct(Number(e.target.value))}
                   className="w-full accent-amber-600 dark:accent-[#FFE492] cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-mono">
-                  <span>0%</span>
-                  <span>40%</span>
-                  <span>80%</span>
-                </div>
               </div>
 
-              {/* Min Total Wins */}
-              <div className="bg-white dark:bg-[#151D2C] p-3.5 rounded-xl border border-slate-200 dark:border-slate-700/60">
-                <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-                  <span>Min Total Wins</span>
-                  <span className="font-mono text-slate-900 dark:text-cyan-300 text-sm font-extrabold">{minWins}</span>
+              <div className="bg-white dark:bg-[#151D2C] p-3 rounded-xl border border-slate-200 dark:border-slate-700/60">
+                <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  <span>Min Wins</span>
+                  <span className="font-mono text-slate-900 dark:text-cyan-300 font-extrabold">{minWins}</span>
                 </div>
                 <input
                   type="range"
@@ -323,64 +302,74 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
                   onChange={(e) => setMinWins(Number(e.target.value))}
                   className="w-full accent-slate-900 dark:accent-cyan-400 cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-mono">
-                  <span>0</span>
-                  <span>25</span>
-                  <span>50+</span>
-                </div>
               </div>
             </div>
           </div>
         )}
       </div>
 
-      {/* Table with Row Striping, Stronger Borders, Tabular-Nums & Right-Aligned Figures */}
+      {/* Sticky Table (Frozen Player & Rank Column on Mobile Scroll) */}
       <div className="bg-white dark:bg-[#151D2C] border border-slate-300 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm dark:shadow-xl transition-colors">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm border-collapse">
-            <thead className="bg-slate-200/80 dark:bg-[#0F172A] border-b border-slate-300 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-300 uppercase tracking-wider select-none">
+        {/* Scroll hint on small screens */}
+        <div className="sm:hidden px-4 py-2 bg-slate-100 dark:bg-[#0F172A] border-b border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
+          <span>👈 Scroll horizontally for stats</span>
+          <span className="font-semibold text-slate-700 dark:text-cyan-300">Name is locked</span>
+        </div>
+
+        <div className="overflow-x-auto relative">
+          <table className="w-full text-left text-sm border-collapse min-w-[700px]">
+            <thead className="bg-slate-200/90 dark:bg-[#0F172A] border-b border-slate-300 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-300 uppercase tracking-wider select-none">
               <tr>
-                <th className="py-4 px-4 w-14 text-center">Rank</th>
-                <th className="py-4 px-4 cursor-pointer hover:text-slate-900 dark:hover:text-white" onClick={() => handleSort('name')}>
+                {/* Sticky Rank Header */}
+                <th className="py-3.5 px-3 w-12 text-center sticky left-0 z-30 bg-slate-200 dark:bg-[#0F172A]">
+                  Rank
+                </th>
+
+                {/* Sticky Player Name Header (With Drop Shadow on right edge) */}
+                <th 
+                  className="py-3.5 px-3 min-w-[150px] sm:min-w-[180px] sticky left-12 z-30 bg-slate-200 dark:bg-[#0F172A] shadow-[4px_0_6px_-2px_rgba(0,0,0,0.08)] dark:shadow-[4px_0_6px_-2px_rgba(0,0,0,0.35)] border-r border-slate-300 dark:border-slate-800 cursor-pointer hover:text-slate-900 dark:hover:text-white"
+                  onClick={() => handleSort('name')}
+                >
                   <div className="flex items-center gap-1.5">
                     Player <ArrowUpDown className="w-3.5 h-3.5 text-slate-600 dark:text-cyan-400" />
                   </div>
                 </th>
-                <th className="py-4 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white" onClick={() => handleSort('matches_played')}>
+
+                {/* Scrollable Metric Headers */}
+                <th className="py-3.5 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white" onClick={() => handleSort('matches_played')}>
                   <div className="flex items-center justify-end gap-1.5">
                     Matches <ArrowUpDown className="w-3.5 h-3.5 text-slate-600 dark:text-cyan-400" />
                   </div>
                 </th>
-                <th className="py-4 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white text-slate-900 dark:text-cyan-300" onClick={() => handleSort('wins')}>
+                <th className="py-3.5 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white text-slate-900 dark:text-cyan-300" onClick={() => handleSort('wins')}>
                   <div className="flex items-center justify-end gap-1.5">
                     Wins <ArrowUpDown className="w-3.5 h-3.5 text-slate-600 dark:text-cyan-400" />
                   </div>
                 </th>
-                <th className="py-4 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white text-red-700 dark:text-rose-400" onClick={() => handleSort('losses')}>
+                <th className="py-3.5 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white text-red-700 dark:text-rose-400" onClick={() => handleSort('losses')}>
                   <div className="flex items-center justify-end gap-1.5">
                     Losses <ArrowUpDown className="w-3.5 h-3.5 text-slate-600 dark:text-cyan-400" />
                   </div>
                 </th>
-                <th className="py-4 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white text-slate-700 dark:text-slate-300" onClick={() => handleSort('ties')}>
+                <th className="py-3.5 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white text-slate-700 dark:text-slate-300" onClick={() => handleSort('ties')}>
                   <div className="flex items-center justify-end gap-1.5">
                     Ties <ArrowUpDown className="w-3.5 h-3.5 text-slate-600 dark:text-cyan-400" />
                   </div>
                 </th>
-                <th className="py-4 px-4 text-center font-mono text-xs">Record</th>
-                <th className="py-4 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white" onClick={() => handleSort('win_pct')}>
+                <th className="py-3.5 px-4 text-center font-mono text-xs">Record</th>
+                <th className="py-3.5 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white" onClick={() => handleSort('win_pct')}>
                   <div className="flex items-center justify-end gap-1.5">
                     Win % <ArrowUpDown className="w-3.5 h-3.5 text-slate-600 dark:text-cyan-400" />
                   </div>
                 </th>
-                <th className="py-4 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white text-amber-800 dark:text-[#FFE492]" onClick={() => handleSort('points_pct')}>
+                <th className="py-3.5 px-4 text-right cursor-pointer hover:text-slate-900 dark:hover:text-white text-amber-800 dark:text-[#FFE492]" onClick={() => handleSort('points_pct')}>
                   <div className="flex items-center justify-end gap-1.5">
                     Points % <ArrowUpDown className="w-3.5 h-3.5 text-amber-700 dark:text-[#FFE492]" />
                   </div>
                 </th>
-                <th className="py-4 px-4 text-center w-10"></th>
+                <th className="py-3.5 px-3 text-center w-8"></th>
               </tr>
             </thead>
-            {/* Boosted divider border between rows */}
             <tbody className="divide-y divide-slate-300/90 dark:divide-slate-800">
               {filteredLeaderboard.length === 0 ? (
                 <tr>
@@ -398,14 +387,21 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
                 filteredLeaderboard.map((player, idx) => {
                   const isTop3 = idx < 3;
                   const medalColors = ['text-amber-500 dark:text-[#FFE492]', 'text-slate-400 dark:text-slate-300', 'text-amber-700 dark:text-amber-600'];
+                  const isEven = idx % 2 === 1;
+                  
+                  // Sticky cell backgrounds matching row striping
+                  const stickyBg = isEven 
+                    ? 'bg-slate-100 dark:bg-[#111827]' 
+                    : 'bg-white dark:bg-[#151D2C]';
+
                   return (
                     <tr 
                       key={player.name}
                       onClick={() => onSelectPlayer(player.name)}
-                      className="odd:bg-white even:bg-slate-100/75 dark:odd:bg-[#151D2C] dark:even:bg-[#111827]/70 hover:bg-slate-200/70 dark:hover:bg-slate-800/60 cursor-pointer transition-colors group"
+                      className="odd:bg-white even:bg-slate-100 dark:odd:bg-[#151D2C] dark:even:bg-[#111827] hover:bg-slate-200/70 dark:hover:bg-slate-800/60 cursor-pointer transition-colors group"
                     >
-                      {/* Rank */}
-                      <td className="py-3.5 px-4 text-center">
+                      {/* Sticky Rank Cell */}
+                      <td className={`py-3.5 px-3 text-center sticky left-0 z-20 ${stickyBg} group-hover:bg-slate-200 dark:group-hover:bg-slate-800 transition-colors`}>
                         {isTop3 ? (
                           <Medal className={`w-4 h-4 mx-auto ${medalColors[idx]}`} />
                         ) : (
@@ -413,50 +409,43 @@ export default function LeaderboardTab({ leaderboard, onSelectPlayer, matches, t
                         )}
                       </td>
 
-                      {/* Player Name (bold) */}
-                      <td className="py-3.5 px-4">
-                        <div className="font-bold text-slate-900 dark:text-slate-100 group-hover:text-slate-700 dark:group-hover:text-cyan-300 transition-colors">
+                      {/* Sticky Player Name Cell (With right edge shadow & border) */}
+                      <td className={`py-3.5 px-3 sticky left-12 z-20 ${stickyBg} shadow-[4px_0_6px_-2px_rgba(0,0,0,0.08)] dark:shadow-[4px_0_6px_-2px_rgba(0,0,0,0.35)] border-r border-slate-300 dark:border-slate-800 group-hover:bg-slate-200 dark:group-hover:bg-slate-800 transition-colors`}>
+                        <div className="font-bold text-slate-900 dark:text-slate-100 group-hover:text-slate-700 dark:group-hover:text-cyan-300 transition-colors truncate max-w-[140px] sm:max-w-none">
                           {player.name}
                         </div>
                       </td>
 
-                      {/* Matches Played (regular weight, right-aligned) */}
+                      {/* Scrollable Data Cells */}
                       <td className={`py-3.5 px-4 text-right tabular-nums ${sortKey === 'matches_played' ? 'font-bold text-slate-900 dark:text-white' : 'font-normal text-slate-700 dark:text-slate-300'}`}>
                         {player.matches_played}
                       </td>
 
-                      {/* Wins (regular weight by default, cyan pastel on dark) */}
                       <td className={`py-3.5 px-4 text-right tabular-nums ${sortKey === 'wins' ? 'font-bold' : 'font-normal'} text-slate-900 dark:text-cyan-300`}>
                         {player.wins}
                       </td>
 
-                      {/* Losses (deep red on light #b91c1c, pastel rose on dark #fb7185) */}
                       <td className={`py-3.5 px-4 text-right tabular-nums ${sortKey === 'losses' ? 'font-bold' : 'font-normal'} text-red-700 dark:text-rose-400`}>
                         {player.losses}
                       </td>
 
-                      {/* Ties (lifted to brighter slate on dark mode) */}
                       <td className={`py-3.5 px-4 text-right tabular-nums ${sortKey === 'ties' ? 'font-bold text-slate-900 dark:text-white' : 'font-normal text-slate-700 dark:text-slate-300'}`}>
                         {player.ties}
                       </td>
 
-                      {/* Record (tabular-nums font-mono) */}
                       <td className="py-3.5 px-4 text-center font-mono text-xs tabular-nums text-slate-700 dark:text-slate-300">
                         {player.record}
                       </td>
 
-                      {/* Win % (regular weight unless sorted) */}
                       <td className={`py-3.5 px-4 text-right tabular-nums ${sortKey === 'win_pct' ? 'font-bold text-slate-900 dark:text-white' : 'font-normal text-slate-700 dark:text-slate-300'}`}>
                         {player.win_pct}%
                       </td>
 
-                      {/* Points % (deepened amber on light #92400e / #b45309, warm yellow on dark) */}
                       <td className={`py-3.5 px-4 text-right tabular-nums text-base ${sortKey === 'points_pct' ? 'font-extrabold text-amber-800 dark:text-[#FFE492]' : 'font-semibold text-amber-800 dark:text-amber-300'}`}>
                         {player.points_pct}%
                       </td>
 
-                      {/* Chevron */}
-                      <td className="py-3.5 px-4 text-center text-slate-400 group-hover:text-slate-700 dark:group-hover:text-cyan-300">
+                      <td className="py-3.5 px-3 text-center text-slate-400 group-hover:text-slate-700 dark:group-hover:text-cyan-300">
                         <ChevronRight className="w-4 h-4 ml-auto" />
                       </td>
                     </tr>
