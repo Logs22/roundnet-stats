@@ -32524,3 +32524,836 @@ IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'wVdLih7UGF09PjHw8
 IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'wX7wnF1y3s64fUgxWPsV' AND game_number = 1)
     INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'wX7wnF1y3s64fUgxWPsV', 1, 21, 17, 4, N'Single Entendre');
 GO
+
+-- INCREMENTAL SYNC: 2026-11-20T07:48:59.486183
+IF NOT EXISTS (SELECT 1 FROM dbo.dim_tournaments WHERE tournament_id = N'Pbdgis0iC5LnnlQh023c')
+    INSERT INTO dbo.dim_tournaments (tournament_id, tournament_name, url_slug, start_date, city, state) VALUES (N'Pbdgis0iC5LnnlQh023c', N'MRS Covington', N'lexington26', N'2026-09-26T13:00:00Z', N'Cold Spring', N'KY');
+IF NOT EXISTS (SELECT 1 FROM dbo.dim_tournaments WHERE tournament_id = N'ZFf7vIUyK0S1228Rnoca')
+    INSERT INTO dbo.dim_tournaments (tournament_id, tournament_name, url_slug, start_date, city, state) VALUES (N'ZFf7vIUyK0S1228Rnoca', N'Friday Night Spike', N'fridaynightspike2', N'2026-10-23T21:00:00Z', N'Highland Heights', N'KY');
+IF NOT EXISTS (SELECT 1 FROM dbo.dim_tournaments WHERE tournament_id = N'b8NgdlSsnwVm7ku98pPr')
+    INSERT INTO dbo.dim_tournaments (tournament_id, tournament_name, url_slug, start_date, city, state) VALUES (N'b8NgdlSsnwVm7ku98pPr', N'Fall', N'fallweekend', N'2026-10-03T15:40:00.638Z', N'Covington', N'KY');
+GO
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'0rohac8GbFlJX3SwFjc2')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'0rohac8GbFlJX3SwFjc2', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'2026-09-26T13:39:06.457Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'5VCmhJZb9lmLWy87tfft')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'5VCmhJZb9lmLWy87tfft', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'TBD', NULL, N'Shred', N'Jackson Wood, Salvatore Guagenti', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'6hMksqwA3qIgWcy9Cucb')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'6hMksqwA3qIgWcy9Cucb', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Team Name', N'Lance Markowitz, Zach Carver', N'Fishers of men', N'Logan Graham, Connor Wallace', N'Fishers of men', N'Logan Graham, Connor Wallace', N'2026-09-26T15:02:39.981Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'6xnQBzw1TQcp5iuiuBS4')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'6xnQBzw1TQcp5iuiuBS4', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Andricko', N'Andrew Ping, Nicko Tomala', N'Eon', N'John Tran, Elijah Whitesell', N'Eon', N'John Tran, Elijah Whitesell', N'2026-09-26T21:05:10.439Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'A0zo3oruWCEuYVz434DC')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'A0zo3oruWCEuYVz434DC', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'Preston^2', N'Preston Murray, Preston Winiger', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'2026-09-26T15:06:09.250Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'AMDqvVoiCT9cluDVwhh1')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'AMDqvVoiCT9cluDVwhh1', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Fishers of men', N'Logan Graham, Connor Wallace', N'Eon', N'John Tran, Elijah Whitesell', N'Fishers of men', N'Logan Graham, Connor Wallace', N'2026-09-26T17:52:11.975Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Cy7vwbrki42NCeu3RsEm')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Cy7vwbrki42NCeu3RsEm', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Fishers of men', N'Logan Graham, Connor Wallace', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'Fishers of men', N'Logan Graham, Connor Wallace', N'2026-09-26T19:14:04.004Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'DAq2GT7ORBMOSFMONl68')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'DAq2GT7ORBMOSFMONl68', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'Eon', N'John Tran, Elijah Whitesell', N'Eon', N'John Tran, Elijah Whitesell', N'2026-09-26T21:06:08.035Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'DLoAxBkjuozxVEV1rKJR')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'DLoAxBkjuozxVEV1rKJR', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'Eon', N'John Tran, Elijah Whitesell', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'2026-09-26T14:32:37.845Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'DUij3yoG4J03yN3Gmnpp')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'DUij3yoG4J03yN3Gmnpp', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Andricko', N'Andrew Ping, Nicko Tomala', N'TBD', NULL, N'Andricko', N'Andrew Ping, Nicko Tomala', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'DmALCpoNAif8diwUsH4F')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'DmALCpoNAif8diwUsH4F', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Preston^2', N'Preston Murray, Preston Winiger', N'TBD', NULL, N'Preston^2', N'Preston Murray, Preston Winiger', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'DxPYAFQIsX5EyL202E3a')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'DxPYAFQIsX5EyL202E3a', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Andricko', N'Andrew Ping, Nicko Tomala', N'Preston^2', N'Preston Murray, Preston Winiger', N'Andricko', N'Andrew Ping, Nicko Tomala', N'2026-09-26T13:39:38.754Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'EPmhTU3mcX5fRtFoxvV5')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'EPmhTU3mcX5fRtFoxvV5', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'Andricko', N'Andrew Ping, Nicko Tomala', N'Andricko', N'Andrew Ping, Nicko Tomala', N'2026-09-26T14:39:36.901Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'EjdaSS2021DP1i1dgj8V')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'EjdaSS2021DP1i1dgj8V', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Andricko', N'Andrew Ping, Nicko Tomala', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'2026-09-26T18:13:44.574Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'FAgNF0ODvYpbH8iyknke')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'FAgNF0ODvYpbH8iyknke', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'2026-09-26T17:58:14.698Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'HfiQ1fUMfXoyiVgnhW43')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'HfiQ1fUMfXoyiVgnhW43', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Team Name', N'Lance Markowitz, Zach Carver', N'Slammo', N'Lewis Cooney, Aiden Johnson', N'Team Name', N'Lance Markowitz, Zach Carver', N'2026-09-26T13:13:59.988Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'I2loWsb8wpgpr4iOirOT')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'I2loWsb8wpgpr4iOirOT', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Team Name', N'Lance Markowitz, Zach Carver', N'Fishers of men', N'Logan Graham, Connor Wallace', N'Fishers of men', N'Logan Graham, Connor Wallace', N'2026-09-27T01:36:34.103Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Jz1QilO3ZfdarI9RpPJf')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Jz1QilO3ZfdarI9RpPJf', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'Andricko', N'Andrew Ping, Nicko Tomala', N'Andricko', N'Andrew Ping, Nicko Tomala', N'2026-09-26T13:18:22.178Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'KduQkw3sFiBqqbqPbebC')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'KduQkw3sFiBqqbqPbebC', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Carver/Nelson', N'Colin Nelson, Laura Carver', N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'MBHN2MPFnWDSb9MbTGNm')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'MBHN2MPFnWDSb9MbTGNm', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Carver/Nelson', N'Colin Nelson, Laura Carver', N'TBD', NULL, N'Carver/Nelson', N'Colin Nelson, Laura Carver', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'OhVVqALDtDrWU6oPWkzD')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'OhVVqALDtDrWU6oPWkzD', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'Carver/Nelson', N'Colin Nelson, Laura Carver', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'2026-09-26T17:08:22.109Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Oqwt9WNlsGUsjuJJ0fqU')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Oqwt9WNlsGUsjuJJ0fqU', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'2026-09-26T15:04:11.591Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'QR5HoWWmNusKH3KsVQ34')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'QR5HoWWmNusKH3KsVQ34', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Carver/Nelson', N'Colin Nelson, Laura Carver', N'TBD', NULL, N'Carver/Nelson', N'Colin Nelson, Laura Carver', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'SRdqe0TmX7Kj7tht8UHh')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'SRdqe0TmX7Kj7tht8UHh', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Fishers of men', N'Logan Graham, Connor Wallace', N'TBD', NULL, N'Fishers of men', N'Logan Graham, Connor Wallace', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'SsDtv2GHvFXCGCwxiazg')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'SsDtv2GHvFXCGCwxiazg', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Eon', N'John Tran, Elijah Whitesell', N'Preston^2', N'Preston Murray, Preston Winiger', N'Eon', N'John Tran, Elijah Whitesell', N'2026-09-26T16:47:40.793Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'T6oF0SwycNkkbQqLNg4J')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'T6oF0SwycNkkbQqLNg4J', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Team Name', N'Lance Markowitz, Zach Carver', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'Team Name', N'Lance Markowitz, Zach Carver', N'2026-09-26T17:27:17.533Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'TDW8Zr3vPBlzAe8FvnRw')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'TDW8Zr3vPBlzAe8FvnRw', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'TBD', NULL, N'The Good Setmaritans', N'Luke Sanders, eddie francis', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'U5g7Bg5o21KiscVOJwrB')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'U5g7Bg5o21KiscVOJwrB', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Team Name', N'Lance Markowitz, Zach Carver', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'Team Name', N'Lance Markowitz, Zach Carver', N'2026-09-26T13:47:37.587Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'VIBJ7xShR60i4X5SalKf')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'VIBJ7xShR60i4X5SalKf', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Slammo', N'Lewis Cooney, Aiden Johnson', N'TBD', NULL, N'Slammo', N'Lewis Cooney, Aiden Johnson', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'WVXTY3TXzyUor0O3WFQt')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'WVXTY3TXzyUor0O3WFQt', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'2026-09-27T21:56:00.266Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ZPsOaq6bZW6XqSQHzHPB')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ZPsOaq6bZW6XqSQHzHPB', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'Slammo', N'Lewis Cooney, Aiden Johnson', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'2026-09-26T14:25:15.810Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ZbZP49bXTAuth0r9D1Ag')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ZbZP49bXTAuth0r9D1Ag', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'2026-09-26T19:20:13.712Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'anxqmydpdEmoIW76Xy5S')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'anxqmydpdEmoIW76Xy5S', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Eon', N'John Tran, Elijah Whitesell', N'Preston^2', N'Preston Murray, Preston Winiger', N'Eon', N'John Tran, Elijah Whitesell', N'2026-09-26T14:29:21.289Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'bzWG9tq8ep52jupLojyO')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'bzWG9tq8ep52jupLojyO', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'Team Name', N'Lance Markowitz, Zach Carver', N'Team Name', N'Lance Markowitz, Zach Carver', N'2026-09-27T01:36:16.773Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'cFPSOrBt6ucaLdxWZJl6')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'cFPSOrBt6ucaLdxWZJl6', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'Andricko', N'Andrew Ping, Nicko Tomala', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'2026-09-26T14:10:23.666Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'db8Nm0Kowr4ilIReukNd')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'db8Nm0Kowr4ilIReukNd', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Fishers of men', N'Logan Graham, Connor Wallace', N'Carver/Nelson', N'Colin Nelson, Laura Carver', N'Fishers of men', N'Logan Graham, Connor Wallace', N'2026-09-26T14:36:49.530Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'dqV5zg7ZO7hkIcpSeRE7')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'dqV5zg7ZO7hkIcpSeRE7', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'Eon', N'John Tran, Elijah Whitesell', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'2026-09-26T13:43:50.506Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'fOpL1SG4rNmqlhbi2hpu')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'fOpL1SG4rNmqlhbi2hpu', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'2026-09-26T14:41:19.359Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'hhaqUmlKecdBSFDlL1tY')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'hhaqUmlKecdBSFDlL1tY', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Andricko', N'Andrew Ping, Nicko Tomala', N'Eon', N'John Tran, Elijah Whitesell', N'Andricko', N'Andrew Ping, Nicko Tomala', N'2026-09-26T15:13:26.272Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'iXdMYj4dYWu0fT1GQiC0')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'iXdMYj4dYWu0fT1GQiC0', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Team Name', N'Lance Markowitz, Zach Carver', N'Carver/Nelson', N'Colin Nelson, Laura Carver', N'Team Name', N'Lance Markowitz, Zach Carver', N'2026-09-26T14:13:55.601Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'mj0obnath4dVkIMAT3z4')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'mj0obnath4dVkIMAT3z4', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'Preston^2', N'Preston Murray, Preston Winiger', N'Shred', N'Jackson Wood, Salvatore Guagenti', N'2026-09-26T13:05:12.994Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'nOTiqONUEOqptegF0qNc')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'nOTiqONUEOqptegF0qNc', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'oxNexh4LMnBZhZ9rOwIW')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'oxNexh4LMnBZhZ9rOwIW', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'Preston^2', N'Preston Murray, Preston Winiger', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'2026-09-26T13:57:54.407Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'rNIwmvuXn4uNGrPRSFXV')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'rNIwmvuXn4uNGrPRSFXV', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Preston^2', N'Preston Murray, Preston Winiger', N'Slammo', N'Lewis Cooney, Aiden Johnson', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'rU19cAp6uGat32yIT05Y')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'rU19cAp6uGat32yIT05Y', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'Slammo', N'Lewis Cooney, Aiden Johnson', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'2026-09-26T16:48:42.376Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'sl6B4H71cjL1UpvF57ER')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'sl6B4H71cjL1UpvF57ER', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Banziger Fan Club', N'Garrett Loiselle, Leeland Fartro', N'Eon', N'John Tran, Elijah Whitesell', N'Eon', N'John Tran, Elijah Whitesell', N'2026-09-26T13:16:35.995Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N't4V3fl3TqGWExqtys4hV')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N't4V3fl3TqGWExqtys4hV', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Carver/Nelson', N'Colin Nelson, Laura Carver', N'Slammo', N'Lewis Cooney, Aiden Johnson', N'Carver/Nelson', N'Colin Nelson, Laura Carver', N'2026-09-26T13:41:13.281Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'u5VQpf76eTEo7KFqCOmh')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'u5VQpf76eTEo7KFqCOmh', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Team Name', N'Lance Markowitz, Zach Carver', N'TBD', NULL, N'Team Name', N'Lance Markowitz, Zach Carver', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'vDkmWBSdN8dCtN4ETTWd')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'vDkmWBSdN8dCtN4ETTWd', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Fishers of men', N'Logan Graham, Connor Wallace', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'Fishers of men', N'Logan Graham, Connor Wallace', N'2026-09-26T13:26:14.989Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'xgtky8wA5fAZ63hIIyMS')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'xgtky8wA5fAZ63hIIyMS', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'bracket', N'Andricko', N'Andrew Ping, Nicko Tomala', N'The Good Setmaritans', N'Luke Sanders, eddie francis', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'y2u50BtUgcm0crCp4T2u')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'y2u50BtUgcm0crCp4T2u', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Carver/Nelson', N'Colin Nelson, Laura Carver', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'BBQ Chicken', N'Evan Talley, caleb johnson', N'2026-09-26T15:08:54.797Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'zzBXxFm1BCxX5Ll2llgx')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'zzBXxFm1BCxX5Ll2llgx', N'Pbdgis0iC5LnnlQh023c', N'4.0 Contender', N'group', N'Fishers of men', N'Logan Graham, Connor Wallace', N'Slammo', N'Lewis Cooney, Aiden Johnson', N'Fishers of men', N'Logan Graham, Connor Wallace', N'2026-09-26T14:03:09.857Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'0388sgKnNsIaUX3KUZV5')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'0388sgKnNsIaUX3KUZV5', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'bracket', N'Aiden and Kylie', N'Aiden Johnson, Kylie Nettles', N'Ball me maybe', N'Jayden Duane, Evan Wallace', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'0sAi36UculnQ0irDmmMU')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'0sAi36UculnQ0irDmmMU', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'bracket', N'Ball me maybe', N'Jayden Duane, Evan Wallace', N'Nicole and Anna', NULL, N'Ball me maybe', N'Jayden Duane, Evan Wallace', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'0yJPeb02jUgBDdErGl57')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'0yJPeb02jUgBDdErGl57', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'1n7jiK9g1ypvFH094NX5')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'1n7jiK9g1ypvFH094NX5', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'Ball me maybe', N'Jayden Duane, Evan Wallace', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'2026-10-23T22:10:49.036Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'2PXFZAwIFnuQiBxnngpa')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'2PXFZAwIFnuQiBxnngpa', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'We bring the boom', N'Alyssa Roell, Jenna Callahan', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'2026-10-23T22:41:53.808Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'2bsdNubVLJp5Aay75qgQ')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'2bsdNubVLJp5Aay75qgQ', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Biddleations 3:67', N'Gaven Biddle, Thomas Tilley', N'Sets and Giggles', N'Jayden herald, Savannah Vieyra', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'3LAmhmk2kx2dA9p41VfZ')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'3LAmhmk2kx2dA9p41VfZ', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'Nicole and Anna', NULL, N'Carpy parti', N'Trevor Rack, Logan Vanzant', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'3VcH6uekY6TD3EWy6AdK')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'3VcH6uekY6TD3EWy6AdK', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'bracket', N'Iceman', N'Chase Bailey, Girish Murali', N'Nicole and Anna', NULL, N'Iceman', N'Chase Bailey, Girish Murali', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'52pFK0lTWiBQNHwwNZdn')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'52pFK0lTWiBQNHwwNZdn', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'Lord Quad Fault', N'Zach Carver, Laura Carver', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'2026-10-23T22:10:06.081Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'5UfGe15t2ORGtnhpTEgo')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'5UfGe15t2ORGtnhpTEgo', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'David and walker', N'Walker Thomas, David Atwood', N'Who do you think you are❓ I AM❗️', N'Evan Talley, Brady Strub', N'David and walker', N'Walker Thomas, David Atwood', N'2026-10-23T23:23:03.364Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'60mCkdWHxfCJwMWfWPHj')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'60mCkdWHxfCJwMWfWPHj', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'Lord Quad Fault', N'Zach Carver, Laura Carver', N'Rick said we chih', N'Luke Sanders, Chris Tomas', N'Lord Quad Fault', N'Zach Carver, Laura Carver', N'2026-10-23T23:07:25.187Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'6eIAMNTM68ietz6dGdRe')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'6eIAMNTM68ietz6dGdRe', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'belt', N'caleb johnson, Connor Wallace', N'Lord Quad Fault', N'Zach Carver, Laura Carver', N'belt', N'caleb johnson, Connor Wallace', N'2026-10-23T21:45:30.781Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'6k4FVlX4tPkcDbJVlZQO')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'6k4FVlX4tPkcDbJVlZQO', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Spikological Warfare', N'Isabel Hummel, Billy Jung', N'Biddleations 3:67', N'Gaven Biddle, Thomas Tilley', N'Biddleations 3:67', N'Gaven Biddle, Thomas Tilley', N'2026-10-23T22:45:13.553Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'79QEz88dSZ6wRpI09Ppv')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'79QEz88dSZ6wRpI09Ppv', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'Cincedo', N'Cohen Lampton, Jackson Carpenter', N'Lord Quad Fault', N'Zach Carver, Laura Carver', N'Cincedo', N'Cohen Lampton, Jackson Carpenter', N'2026-10-24T02:43:39.276Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'83sKaEUCEPBqtfg7OsEy')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'83sKaEUCEPBqtfg7OsEy', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Aiden and Kylie', N'Aiden Johnson, Kylie Nettles', N'Chumps', N'Drew Davis, Ritvik Rao', N'Chumps', N'Drew Davis, Ritvik Rao', N'2026-10-23T23:07:15.535Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'8O1Rhr30JynuymhTmpJI')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'8O1Rhr30JynuymhTmpJI', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Double Trouble', N'Ava Finke, Kylie Anderson', N'Nicole and Anna', NULL, N'Double Trouble', N'Ava Finke, Kylie Anderson', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'8O5patc0IdFee3rZyQ8C')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'8O5patc0IdFee3rZyQ8C', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Frog & Toad', N'Cohen Stone, Zoey May', N'Team Blackburn', N'Drew Blackburn, Braden Blackburn', N'Frog & Toad', N'Cohen Stone, Zoey May', N'2026-10-23T23:51:20.443Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'8RMAFEn5lgLwUMY4PFZ2')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'8RMAFEn5lgLwUMY4PFZ2', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Chumps', N'Drew Davis, Ritvik Rao', N'Lex boys', N'Cole Baesel, Bryson White', N'Chumps', N'Drew Davis, Ritvik Rao', N'2026-10-23T22:19:42.008Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'8RSb4KjrzrJG0293LBHL')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'8RSb4KjrzrJG0293LBHL', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'Lex boys', N'Cole Baesel, Bryson White', N'Lex boys', N'Cole Baesel, Bryson White', N'2026-10-23T23:05:39.584Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Ae1LjPCG0HF46d8PsKhg')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Ae1LjPCG0HF46d8PsKhg', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Spikological Warfare', N'Isabel Hummel, Billy Jung', N'We bring the boom', N'Alyssa Roell, Jenna Callahan', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'BB1lvWxlApXcJGnGYSmD')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'BB1lvWxlApXcJGnGYSmD', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'bracket', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'Ball me maybe', N'Jayden Duane, Evan Wallace', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'2026-10-23T23:42:02.551Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'BLeaaJpaFEDbRzz1Iqqi')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'BLeaaJpaFEDbRzz1Iqqi', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'BpZuiqB8vKEujftwFH4l')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'BpZuiqB8vKEujftwFH4l', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'David and walker', N'Walker Thomas, David Atwood', N'Uc spike', N'Christian Lile-Burk, avneet singh', N'Uc spike', N'Christian Lile-Burk, avneet singh', N'2026-10-23T22:06:09.282Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'D1j0dvsshbqOT6FD2rv6')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'D1j0dvsshbqOT6FD2rv6', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'bracket', N'Iceman', N'Chase Bailey, Girish Murali', N'Lex boys', N'Cole Baesel, Bryson White', N'Iceman', N'Chase Bailey, Girish Murali', N'2026-10-24T00:08:12.355Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'DDnxkntQVY5wF5SOhHkF')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'DDnxkntQVY5wF5SOhHkF', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'DaCIhJxpKjxyw4JtmXxt')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'DaCIhJxpKjxyw4JtmXxt', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Iceman', N'Chase Bailey, Girish Murali', N'Lex boys', N'Cole Baesel, Bryson White', N'Iceman', N'Chase Bailey, Girish Murali', N'2026-10-23T22:21:25.142Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'EB1r3S42qOKSTNx049uG')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'EB1r3S42qOKSTNx049uG', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'Past & Present', N'Kyle Weinberg, Logan Graham', N'Steve Onix', N'Alex Aaron, Ryan Miller', N'Past & Present', N'Kyle Weinberg, Logan Graham', N'2026-10-23T21:48:20.804Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'EIsNxBhm4rFPr8O5CQZJ')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'EIsNxBhm4rFPr8O5CQZJ', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'Team Blackburn', N'Drew Blackburn, Braden Blackburn', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'2026-10-23T21:57:17.597Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'FUK8q2ucL4u4NX7K98ED')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'FUK8q2ucL4u4NX7K98ED', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'Past & Present', N'Kyle Weinberg, Logan Graham', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'2026-10-24T02:09:01.802Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'FWww7YqEhq9bta6ZVxlq')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'FWww7YqEhq9bta6ZVxlq', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'🧨🧨🧨🧨', N'Alex Winterman, christian Brown', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'2026-10-23T21:37:04.517Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Fhm8lldHFJBLFyp1ONBg')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Fhm8lldHFJBLFyp1ONBg', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Team Blackburn', N'Drew Blackburn, Braden Blackburn', N'🧨🧨🧨🧨', N'Alex Winterman, christian Brown', N'🧨🧨🧨🧨', N'Alex Winterman, christian Brown', N'2026-10-23T22:28:29.292Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'FqdVidicjrJrIFIWedi0')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'FqdVidicjrJrIFIWedi0', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Spikological Warfare', N'Isabel Hummel, Billy Jung', N'Double Trouble', N'Ava Finke, Kylie Anderson', N'Double Trouble', N'Ava Finke, Kylie Anderson', N'2026-10-23T22:51:05.627Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Fu0ykQz1xRdDenuOSQdV')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Fu0ykQz1xRdDenuOSQdV', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Iceman', N'Chase Bailey, Girish Murali', N'Ball me maybe', N'Jayden Duane, Evan Wallace', N'Iceman', N'Chase Bailey, Girish Murali', N'2026-10-23T22:52:32.948Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'FyR3O9b5evzkIbx50Ujm')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'FyR3O9b5evzkIbx50Ujm', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'David and walker', N'Walker Thomas, David Atwood', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'2026-10-24T02:46:25.660Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'GEe0RBqcfypgELGZFrkF')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'GEe0RBqcfypgELGZFrkF', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'belt', N'caleb johnson, Connor Wallace', N'Rick said we chih', N'Luke Sanders, Chris Tomas', N'belt', N'caleb johnson, Connor Wallace', N'2026-10-23T22:56:38.125Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'GJ8GRQjj28OpWXSkZbwF')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'GJ8GRQjj28OpWXSkZbwF', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'Cincedo', N'Cohen Lampton, Jackson Carpenter', N'“Is there dairy in that?”', N'Yanai Hamel-Sasson, Rachel Dolan', N'Cincedo', N'Cohen Lampton, Jackson Carpenter', N'2026-10-23T21:58:36.581Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'H2vjSvOLgEyCO0ZqFjuA')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'H2vjSvOLgEyCO0ZqFjuA', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Aiden and Kylie', N'Aiden Johnson, Kylie Nettles', N'Lex boys', N'Cole Baesel, Bryson White', N'Aiden and Kylie', N'Aiden Johnson, Kylie Nettles', N'2026-10-23T21:53:43.494Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'H5XotdKiQQOCAO0o5YpX')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'H5XotdKiQQOCAO0o5YpX', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'bracket', N'Chumps', N'Drew Davis, Ritvik Rao', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'Chumps', N'Drew Davis, Ritvik Rao', N'2026-10-24T01:16:17.026Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'HaH0IZe1wnV3CwOO2SLN')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'HaH0IZe1wnV3CwOO2SLN', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'Lord Quad Fault', N'Zach Carver, Laura Carver', N'Rick said we chih', N'Luke Sanders, Chris Tomas', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Hfw3TOkeZwqksh7wsXFQ')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Hfw3TOkeZwqksh7wsXFQ', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Holy Spikes', N'Ella Norwick, Ishika Cass', N'norse Baja', N'Jacob Garland, Eddie Hess', N'norse Baja', N'Jacob Garland, Eddie Hess', N'2026-10-23T22:50:49.511Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'I1ahrNoxu1pVs3KBdNlM')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'I1ahrNoxu1pVs3KBdNlM', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'David and walker', N'Walker Thomas, David Atwood', N'CO Spikers', N'Amy Greenwood, Mylee Smith', N'David and walker', N'Walker Thomas, David Atwood', N'2026-10-23T22:29:20.174Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'I2Wp10SK8dcn6suxSwFN')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'I2Wp10SK8dcn6suxSwFN', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Uc spike', N'Christian Lile-Burk, avneet singh', N'Nicole and Anna', NULL, N'Uc spike', N'Christian Lile-Burk, avneet singh', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'K5cw1XmV6sDhEp2g2EZK')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'K5cw1XmV6sDhEp2g2EZK', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'TBD', NULL, N'Frog & Toad', N'Cohen Stone, Zoey May', N'Frog & Toad', N'Cohen Stone, Zoey May', N'2026-10-23T21:32:41.770Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'K6uUMXyRkozefxYJwpJS')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'K6uUMXyRkozefxYJwpJS', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Aiden and Kylie', N'Aiden Johnson, Kylie Nettles', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'2026-10-23T22:25:41.702Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'KVjkkPrAhQPdg6RvCcID')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'KVjkkPrAhQPdg6RvCcID', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'belt', N'caleb johnson, Connor Wallace', N'Steve Onix', N'Alex Aaron, Ryan Miller', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'KZViEZrcAgIGg8SMqqUy')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'KZViEZrcAgIGg8SMqqUy', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'“Is there dairy in that?”', N'Yanai Hamel-Sasson, Rachel Dolan', N'Cincedo', N'Cohen Lampton, Jackson Carpenter', N'“Is there dairy in that?”', N'Yanai Hamel-Sasson, Rachel Dolan', N'2026-10-24T02:43:52.204Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'LHSDUNvojqXYo2F89jQp')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'LHSDUNvojqXYo2F89jQp', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'McV3biSosgfkrGqCZrDz')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'McV3biSosgfkrGqCZrDz', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Frog & Toad', N'Cohen Stone, Zoey May', N'Nicole and Anna', NULL, N'Frog & Toad', N'Cohen Stone, Zoey May', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'NEhYurJwdtJpxWrv7LWk')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'NEhYurJwdtJpxWrv7LWk', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'We bring the boom', N'Alyssa Roell, Jenna Callahan', N'Biddleations 3:67', N'Gaven Biddle, Thomas Tilley', N'We bring the boom', N'Alyssa Roell, Jenna Callahan', N'2026-10-24T02:45:15.680Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'OdDbLJHelCriUUoh0rql')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'OdDbLJHelCriUUoh0rql', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'TBD', NULL, N'Nicole and Anna', NULL, N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'PeiIPDDES90NAbKBmRmg')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'PeiIPDDES90NAbKBmRmg', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'norse Baja', N'Jacob Garland, Eddie Hess', N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Pl8vM0O4nduCRrJaRl1n')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Pl8vM0O4nduCRrJaRl1n', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'Nicole and Anna', NULL, N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'PpfNG0EqhP4Xrq1Vztdz')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'PpfNG0EqhP4Xrq1Vztdz', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Uc spike', N'Christian Lile-Burk, avneet singh', N'Who do you think you are❓ I AM❗️', N'Evan Talley, Brady Strub', N'Uc spike', N'Christian Lile-Burk, avneet singh', N'2026-10-23T22:27:23.306Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'PqsfT1DqFvjFZRxnjy62')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'PqsfT1DqFvjFZRxnjy62', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'🧨🧨🧨🧨', N'Alex Winterman, christian Brown', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'2026-10-23T23:59:04.537Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'QD35m2LpYY4Suo3pq7mJ')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'QD35m2LpYY4Suo3pq7mJ', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'Iceman', N'Chase Bailey, Girish Murali', N'Iceman', N'Chase Bailey, Girish Murali', N'2026-10-23T21:33:27.502Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'QeVwJuuJmlPR8KNZGnbg')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'QeVwJuuJmlPR8KNZGnbg', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'TBD', NULL, N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'2026-10-23T23:41:17.083Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'RsefnkVDkwdrHpsxo1oG')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'RsefnkVDkwdrHpsxo1oG', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'bracket', N'Lex boys', N'Cole Baesel, Bryson White', N'Aiden and Kylie', N'Aiden Johnson, Kylie Nettles', N'Lex boys', N'Cole Baesel, Bryson White', N'2026-10-23T23:40:02.765Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'SLZSCYWMQXC9kwPbpSNl')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'SLZSCYWMQXC9kwPbpSNl', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'“Is there dairy in that?”', N'Yanai Hamel-Sasson, Rachel Dolan', N'Steve Onix', N'Alex Aaron, Ryan Miller', N'“Is there dairy in that?”', N'Yanai Hamel-Sasson, Rachel Dolan', N'2026-10-23T22:50:22.053Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'SNL1QMO6zIDQf10DJVwF')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'SNL1QMO6zIDQf10DJVwF', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Spikological Warfare', N'Isabel Hummel, Billy Jung', N'Nicole and Anna', NULL, N'Spikological Warfare', N'Isabel Hummel, Billy Jung', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'SflAWTaq2nUxwhQ51QTq')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'SflAWTaq2nUxwhQ51QTq', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'We bring the boom', N'Alyssa Roell, Jenna Callahan', N'Team Blackburn', N'Drew Blackburn, Braden Blackburn', N'We bring the boom', N'Alyssa Roell, Jenna Callahan', N'2026-10-23T21:40:19.229Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'SuSC208Kw2OAcSOiXbZL')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'SuSC208Kw2OAcSOiXbZL', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Ball me maybe', N'Jayden Duane, Evan Wallace', N'Lex boys', N'Cole Baesel, Bryson White', N'Lex boys', N'Cole Baesel, Bryson White', N'2026-10-23T23:05:30.502Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'TDA7cOmXXf0EO8MveGTq')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'TDA7cOmXXf0EO8MveGTq', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'Past & Present', N'Kyle Weinberg, Logan Graham', N'belt', N'caleb johnson, Connor Wallace', N'Past & Present', N'Kyle Weinberg, Logan Graham', N'2026-10-24T00:02:01.801Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'UNfxCor8cL3z2LmdbJmJ')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'UNfxCor8cL3z2LmdbJmJ', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Chumps', N'Drew Davis, Ritvik Rao', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'Chumps', N'Drew Davis, Ritvik Rao', N'2026-10-23T21:57:49.352Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'URuO2IDQMhhHsgCPU7MY')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'URuO2IDQMhhHsgCPU7MY', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Double Trouble', N'Ava Finke, Kylie Anderson', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'2026-10-23T22:09:12.787Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'VQND159ogHcPhgnla7yi')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'VQND159ogHcPhgnla7yi', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Chumps', N'Drew Davis, Ritvik Rao', N'Iceman', N'Chase Bailey, Girish Murali', N'Iceman', N'Chase Bailey, Girish Murali', N'2026-10-23T22:39:35.863Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'VxeWD1WtlRlUUJgfTk46')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'VxeWD1WtlRlUUJgfTk46', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Spikological Warfare', N'Isabel Hummel, Billy Jung', N'David and walker', N'Walker Thomas, David Atwood', N'David and walker', N'Walker Thomas, David Atwood', N'2026-10-24T00:11:06.256Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'WB8un7XCtkp6UjuFzDrA')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'WB8un7XCtkp6UjuFzDrA', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'bracket', N'Iceman', N'Chase Bailey, Girish Murali', N'Chumps', N'Drew Davis, Ritvik Rao', N'Iceman', N'Chase Bailey, Girish Murali', N'2026-10-24T01:53:09.027Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'WD3YxUZS2oyNtEJiA2xw')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'WD3YxUZS2oyNtEJiA2xw', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'We bring the boom', N'Alyssa Roell, Jenna Callahan', N'🧨🧨🧨🧨', N'Alex Winterman, christian Brown', N'We bring the boom', N'Alyssa Roell, Jenna Callahan', N'2026-10-23T21:58:33.029Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Wb4DjgM1ZnlycBTP8LRD')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Wb4DjgM1ZnlycBTP8LRD', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Sets and Giggles', N'Jayden herald, Savannah Vieyra', N'Frog & Toad', N'Cohen Stone, Zoey May', N'Frog & Toad', N'Cohen Stone, Zoey May', N'2026-10-23T22:52:32.607Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'X1HbiQjO4CnzGkgfgYyR')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'X1HbiQjO4CnzGkgfgYyR', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'norse Baja', N'Jacob Garland, Eddie Hess', N'🧨🧨🧨🧨', N'Alex Winterman, christian Brown', N'🧨🧨🧨🧨', N'Alex Winterman, christian Brown', N'2026-10-23T23:32:30.763Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'X1kW0voSFWL0AGfnF8FF')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'X1kW0voSFWL0AGfnF8FF', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'David and walker', N'Walker Thomas, David Atwood', N'Who do you think you are❓ I AM❗️', N'Evan Talley, Brady Strub', N'David and walker', N'Walker Thomas, David Atwood', N'2026-10-23T21:39:58.757Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'X2SGrvRXkoRj1uTHky7C')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'X2SGrvRXkoRj1uTHky7C', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'X99Hq0UHNc0Zn9R8nJQi')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'X99Hq0UHNc0Zn9R8nJQi', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Holy Spikes', N'Ella Norwick, Ishika Cass', N'Nicole and Anna', NULL, N'Holy Spikes', N'Ella Norwick, Ishika Cass', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'XDdoxBPRhMPGfoiYcvgK')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'XDdoxBPRhMPGfoiYcvgK', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'“Is there dairy in that?”', N'Yanai Hamel-Sasson, Rachel Dolan', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'2026-10-24T02:44:08.814Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'YREC3PJx6sRhsIZb1J6Y')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'YREC3PJx6sRhsIZb1J6Y', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'Sets and Giggles', N'Jayden herald, Savannah Vieyra', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'2026-10-23T23:32:35.362Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Z97shTU4ubxSz8yThBdb')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Z97shTU4ubxSz8yThBdb', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Who do you think you are❓ I AM❗️', N'Evan Talley, Brady Strub', N'Uc spike', N'Christian Lile-Burk, avneet singh', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ZaGauJdOesV4STiP1lpl')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ZaGauJdOesV4STiP1lpl', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'David and walker', N'Walker Thomas, David Atwood', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'2026-10-24T02:46:38.751Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ZkUfRc8T2WG0FOjyaXA8')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ZkUfRc8T2WG0FOjyaXA8', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'CO Spikers', N'Amy Greenwood, Mylee Smith', N'Nicole and Anna', NULL, N'CO Spikers', N'Amy Greenwood, Mylee Smith', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ZrIZhGpAmpRQo3aZ60zB')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ZrIZhGpAmpRQo3aZ60zB', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'Past & Present', N'Kyle Weinberg, Logan Graham', N'Cincedo', N'Cohen Lampton, Jackson Carpenter', N'Past & Present', N'Kyle Weinberg, Logan Graham', N'2026-10-23T23:04:35.308Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ZsLFVR24zknWqEvrboma')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ZsLFVR24zknWqEvrboma', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Holy Spikes', N'Ella Norwick, Ishika Cass', N'Frog & Toad', N'Cohen Stone, Zoey May', N'Frog & Toad', N'Cohen Stone, Zoey May', N'2026-10-23T22:26:13.829Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ZwpnBxSCDt8slAHqhMpV')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ZwpnBxSCDt8slAHqhMpV', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Team Blackburn', N'Drew Blackburn, Braden Blackburn', N'CO Spikers', N'Amy Greenwood, Mylee Smith', N'Team Blackburn', N'Drew Blackburn, Braden Blackburn', N'2026-10-23T23:31:37.856Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'aJoAtF1AQu3UwOzkPPqX')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'aJoAtF1AQu3UwOzkPPqX', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Sets and Giggles', N'Jayden herald, Savannah Vieyra', N'Nicole and Anna', NULL, N'Sets and Giggles', N'Jayden herald, Savannah Vieyra', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ab4HdY6uYGb28sduFuZ1')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ab4HdY6uYGb28sduFuZ1', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'bracket', N'Chumps', N'Drew Davis, Ritvik Rao', N'Nicole and Anna', NULL, N'Chumps', N'Drew Davis, Ritvik Rao', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'aogCwLF6j4EgyVuD8iAA')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'aogCwLF6j4EgyVuD8iAA', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'bBcQkf2XKmo2W1ngWkbq')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'bBcQkf2XKmo2W1ngWkbq', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Frog & Toad', N'Cohen Stone, Zoey May', N'norse Baja', N'Jacob Garland, Eddie Hess', N'Frog & Toad', N'Cohen Stone, Zoey May', N'2026-10-23T22:25:56.682Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'bffkEWyziCvULkC5oyvl')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'bffkEWyziCvULkC5oyvl', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'TBD', NULL, N'norse Baja', N'Jacob Garland, Eddie Hess', N'norse Baja', N'Jacob Garland, Eddie Hess', N'2026-10-23T22:30:31.842Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'cJbvFu9ipHZZKbtTiQT0')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'cJbvFu9ipHZZKbtTiQT0', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'Rick said we chih', N'Luke Sanders, Chris Tomas', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'2026-10-23T21:31:12.703Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'cKAniTK5yTANHRZWoakH')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'cKAniTK5yTANHRZWoakH', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'“Is there dairy in that?”', N'Yanai Hamel-Sasson, Rachel Dolan', N'Rick said we chih', N'Luke Sanders, Chris Tomas', N'“Is there dairy in that?”', N'Yanai Hamel-Sasson, Rachel Dolan', N'2026-10-24T02:09:35.298Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'dpQNLdPNYlOjuXfyafff')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'dpQNLdPNYlOjuXfyafff', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Biddleations 3:67', N'Gaven Biddle, Thomas Tilley', N'Nicole and Anna', NULL, N'Biddleations 3:67', N'Gaven Biddle, Thomas Tilley', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'eKxMrHiGWIKIxaUhXHkh')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'eKxMrHiGWIKIxaUhXHkh', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Holy Spikes', N'Ella Norwick, Ishika Cass', N'TBD', NULL, N'Holy Spikes', N'Ella Norwick, Ishika Cass', N'2026-10-23T23:07:07.442Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'eaoC7RSYKiNvJfmKS1B5')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'eaoC7RSYKiNvJfmKS1B5', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Aiden and Kylie', N'Aiden Johnson, Kylie Nettles', N'Iceman', N'Chase Bailey, Girish Murali', N'Iceman', N'Chase Bailey, Girish Murali', N'2026-10-23T22:07:23.582Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'f2bzfIXcazaik4b4rc4h')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'f2bzfIXcazaik4b4rc4h', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'CO Spikers', N'Amy Greenwood, Mylee Smith', N'Who do you think you are❓ I AM❗️', N'Evan Talley, Brady Strub', N'Who do you think you are❓ I AM❗️', N'Evan Talley, Brady Strub', N'2026-10-23T22:00:47.882Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ff12g3lO95wwHO0wbinI')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ff12g3lO95wwHO0wbinI', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Uc spike', N'Christian Lile-Burk, avneet singh', N'Spikological Warfare', N'Isabel Hummel, Billy Jung', N'Spikological Warfare', N'Isabel Hummel, Billy Jung', N'2026-10-24T00:10:58.209Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'gJbrR65Giph1B3a41vOn')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'gJbrR65Giph1B3a41vOn', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'gO7JxAvrio9TmhIa5Yqx')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'gO7JxAvrio9TmhIa5Yqx', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'CO Spikers', N'Amy Greenwood, Mylee Smith', N'Uc spike', N'Christian Lile-Burk, avneet singh', N'Uc spike', N'Christian Lile-Burk, avneet singh', N'2026-10-23T21:42:36.501Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'gRU5VTYwm8WKG4ALQbkT')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'gRU5VTYwm8WKG4ALQbkT', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Holy Spikes', N'Ella Norwick, Ishika Cass', N'Sets and Giggles', N'Jayden herald, Savannah Vieyra', N'Holy Spikes', N'Ella Norwick, Ishika Cass', N'2026-10-23T22:30:20.954Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'gofP87ZpBMngj0nKKSdI')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'gofP87ZpBMngj0nKKSdI', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'CO Spikers', N'Amy Greenwood, Mylee Smith', N'Nicole and Anna', NULL, N'CO Spikers', N'Amy Greenwood, Mylee Smith', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'h91PiProJHZQgNOePxaj')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'h91PiProJHZQgNOePxaj', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Holy Spikes', N'Ella Norwick, Ishika Cass', N'Double Trouble', N'Ava Finke, Kylie Anderson', N'Double Trouble', N'Ava Finke, Kylie Anderson', N'2026-10-23T23:41:23.799Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'hGilTpTwud9wbYnOGgkZ')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'hGilTpTwud9wbYnOGgkZ', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'We bring the boom', N'Alyssa Roell, Jenna Callahan', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'2026-10-24T02:45:22.485Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'hcwtjoNALzc6ZJqPj03e')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'hcwtjoNALzc6ZJqPj03e', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'bracket', N'Aiden and Kylie', N'Aiden Johnson, Kylie Nettles', N'Nicole and Anna', NULL, N'Aiden and Kylie', N'Aiden Johnson, Kylie Nettles', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ij0fSR1zb9Q7ceRX0L36')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ij0fSR1zb9Q7ceRX0L36', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Double Trouble', N'Ava Finke, Kylie Anderson', N'Biddleations 3:67', N'Gaven Biddle, Thomas Tilley', N'Double Trouble', N'Ava Finke, Kylie Anderson', N'2026-10-23T21:23:34.103Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'j11c2CKL7x73ybuE5VKj')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'j11c2CKL7x73ybuE5VKj', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Frog & Toad', N'Cohen Stone, Zoey May', N'Double Trouble', N'Ava Finke, Kylie Anderson', N'Frog & Toad', N'Cohen Stone, Zoey May', N'2026-10-24T00:19:23.490Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'jpH4sFSb7OhmmNVC1yAa')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'jpH4sFSb7OhmmNVC1yAa', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'kVAeZVruzt9rVPuhXUY7')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'kVAeZVruzt9rVPuhXUY7', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'kVXFl8H7c99tdzS2oZmE')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'kVXFl8H7c99tdzS2oZmE', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'belt', N'caleb johnson, Connor Wallace', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'2026-10-23T22:56:42.156Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'knTT3zPzkFvT2tBcIL6C')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'knTT3zPzkFvT2tBcIL6C', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Frog & Toad', N'Cohen Stone, Zoey May', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'Frog & Toad', N'Cohen Stone, Zoey May', N'2026-10-24T00:55:59.529Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'krshsJTGXrMErRGkzrET')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'krshsJTGXrMErRGkzrET', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Chumps', N'Drew Davis, Ritvik Rao', N'Ball me maybe', N'Jayden Duane, Evan Wallace', N'Chumps', N'Drew Davis, Ritvik Rao', N'2026-10-23T21:58:30.581Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'kxzAOVKbMtPNwAFZbhpS')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'kxzAOVKbMtPNwAFZbhpS', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'David and walker', N'Walker Thomas, David Atwood', N'Nicole and Anna', NULL, N'David and walker', N'Walker Thomas, David Atwood', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'lfrj3FWs44NJ6fUna1d6')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'lfrj3FWs44NJ6fUna1d6', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'TBD', NULL, N'Sets and Giggles', N'Jayden herald, Savannah Vieyra', N'TBD', NULL, N'2026-10-23T22:51:48.790Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'm1QIJ68gPG5CC8vkf5Vm')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'm1QIJ68gPG5CC8vkf5Vm', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'nUROJhmJjQuQYbTMigkN')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'nUROJhmJjQuQYbTMigkN', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'CO Spikers', N'Amy Greenwood, Mylee Smith', N'Nicole and Anna', NULL, N'CO Spikers', N'Amy Greenwood, Mylee Smith', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'oIhhNfKrkTn4k7CaPZ0Z')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'oIhhNfKrkTn4k7CaPZ0Z', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'group', N'Aiden and Kylie', N'Aiden Johnson, Kylie Nettles', N'Ball me maybe', N'Jayden Duane, Evan Wallace', N'Aiden and Kylie', N'Aiden Johnson, Kylie Nettles', N'2026-10-23T21:53:50.124Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'qKXmmZiCedRbHUEnCNNC')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'qKXmmZiCedRbHUEnCNNC', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Holy Spikes', N'Ella Norwick, Ishika Cass', N'Team Blackburn', N'Drew Blackburn, Braden Blackburn', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'rT65vpzsztK8sy7UD88y')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'rT65vpzsztK8sy7UD88y', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'Cincedo', N'Cohen Lampton, Jackson Carpenter', N'Steve Onix', N'Alex Aaron, Ryan Miller', N'Cincedo', N'Cohen Lampton, Jackson Carpenter', N'2026-10-23T22:18:39.527Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'rdaldv1cU0CgnupoN5bS')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'rdaldv1cU0CgnupoN5bS', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'group', N'Past & Present', N'Kyle Weinberg, Logan Graham', N'“Is there dairy in that?”', N'Yanai Hamel-Sasson, Rachel Dolan', N'“Is there dairy in that?”', N'Yanai Hamel-Sasson, Rachel Dolan', N'2026-10-23T22:32:16.682Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'sHO9I1CtmS4kqoGESEgT')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'sHO9I1CtmS4kqoGESEgT', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ssFpw4MCR1gTERylX2DJ')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ssFpw4MCR1gTERylX2DJ', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'We bring the boom', N'Alyssa Roell, Jenna Callahan', N'Nicole and Anna', NULL, N'We bring the boom', N'Alyssa Roell, Jenna Callahan', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N't1XWoieRZw4H10nzmhj5')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N't1XWoieRZw4H10nzmhj5', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Spikological Warfare', N'Isabel Hummel, Billy Jung', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'2026-10-23T21:47:23.519Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'tUCeyvmfxt9Ie2FOC7Qp')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'tUCeyvmfxt9Ie2FOC7Qp', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'Cincedo', N'Cohen Lampton, Jackson Carpenter', N'Past & Present', N'Kyle Weinberg, Logan Graham', N'Past & Present', N'Kyle Weinberg, Logan Graham', N'2026-10-24T02:44:01.061Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'teqZl5yi72qGVqZbdVsD')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'teqZl5yi72qGVqZbdVsD', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'Nicole and Anna', NULL, N'Nicole and Anna', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'vOS8cZNCw7VBS2oKumrV')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'vOS8cZNCw7VBS2oKumrV', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Who do you think you are❓ I AM❗️', N'Evan Talley, Brady Strub', N'Nicole and Anna', NULL, N'Who do you think you are❓ I AM❗️', N'Evan Talley, Brady Strub', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'vR5dTpXIvbAcSHA8atHi')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'vR5dTpXIvbAcSHA8atHi', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'Frog & Toad', N'Cohen Stone, Zoey May', N'Carpy parti', N'Trevor Rack, Logan Vanzant', N'None/Tie', NULL, N'2026-10-24T02:46:45.299Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'vrifRMR4KscLzPxyMcKP')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'vrifRMR4KscLzPxyMcKP', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'🧨🧨🧨🧨', N'Alex Winterman, christian Brown', N'Double Trouble', N'Ava Finke, Kylie Anderson', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'w8OM6GcTmCRk5ULrcUCZ')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'w8OM6GcTmCRk5ULrcUCZ', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'norse Baja', N'Jacob Garland, Eddie Hess', N'Nicole and Anna', NULL, N'norse Baja', N'Jacob Garland, Eddie Hess', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'wFctvZhwwG2Nkfd5b2rT')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'wFctvZhwwG2Nkfd5b2rT', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'CO Spikers', N'Amy Greenwood, Mylee Smith', N'Nicole and Anna', NULL, N'CO Spikers', N'Amy Greenwood, Mylee Smith', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'xAvMYkClFBZpFdrKyaob')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'xAvMYkClFBZpFdrKyaob', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'bracket', N'🧨🧨🧨🧨', N'Alex Winterman, christian Brown', N'Nicole and Anna', NULL, N'🧨🧨🧨🧨', N'Alex Winterman, christian Brown', NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'xMGB1iZBpjqpave6RZir')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'xMGB1iZBpjqpave6RZir', N'ZFf7vIUyK0S1228Rnoca', N'Advanced', N'bracket', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'Lex boys', N'Cole Baesel, Bryson White', N'Bleed Blue', N'Preston Winiger, Brayden Holland', N'2026-10-24T01:16:23.121Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'xWBK64FeBDIGJpeDvLdo')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'xWBK64FeBDIGJpeDvLdo', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Sets and Giggles', N'Jayden herald, Savannah Vieyra', N'norse Baja', N'Jacob Garland, Eddie Hess', N'norse Baja', N'Jacob Garland, Eddie Hess', N'2026-10-23T22:30:06.681Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'yEhUjnVM1EDulnb4tTB1')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'yEhUjnVM1EDulnb4tTB1', N'ZFf7vIUyK0S1228Rnoca', N'Expert', N'bracket', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'Steve Onix', N'Alex Aaron, Ryan Miller', N'Shred', N'Salvatore Guagenti, Jackson Wood', N'2026-10-24T00:17:22.998Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'z2nAYvtDsStKWENc2KMJ')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'z2nAYvtDsStKWENc2KMJ', N'ZFf7vIUyK0S1228Rnoca', N'Intermediate', N'group', N'Biddleations 3:67', N'Gaven Biddle, Thomas Tilley', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'The Chiang Dynasty', N'Andres Chiang, Isaac Snider', N'2026-10-23T22:37:56.673Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'4AfZZtNG6Bwj0mHUmvGs')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'4AfZZtNG6Bwj0mHUmvGs', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'4kVSnzLHFxz3luxppLyh')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'4kVSnzLHFxz3luxppLyh', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T19:06:30.478Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'5TvRvtGsa2RSOZK4aZOD')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'5TvRvtGsa2RSOZK4aZOD', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'7tCEyhLPWkIR45WRYq6R')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'7tCEyhLPWkIR45WRYq6R', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'8u1KF0DT2dQpzihKrntm')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'8u1KF0DT2dQpzihKrntm', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'8y6tABn1Qlw2Acey6IqY')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'8y6tABn1Qlw2Acey6IqY', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'93S8aNbtR09mYBRdRnis')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'93S8aNbtR09mYBRdRnis', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T19:03:20.777Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'9Thp6sGdSEVJo6euZUZ6')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'9Thp6sGdSEVJo6euZUZ6', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'9UwFwwAbeMDh1Y9mHerG')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'9UwFwwAbeMDh1Y9mHerG', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'CXnMTI9Xj9gEWXWPtZ8J')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'CXnMTI9Xj9gEWXWPtZ8J', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'HYkqpXt0KJ128JpdrY2O')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'HYkqpXt0KJ128JpdrY2O', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ME2zTGReV91XhzRI0MBl')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ME2zTGReV91XhzRI0MBl', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'MmZzv7oXDUjBGXNRvEl7')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'MmZzv7oXDUjBGXNRvEl7', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'MvQDMdGrIYe0vXN8Za9a')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'MvQDMdGrIYe0vXN8Za9a', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'My0Le0eYlbBVfGI5s97r')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'My0Le0eYlbBVfGI5s97r', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T18:48:05.624Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'NSpd62bG3OVQiEkoCjn2')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'NSpd62bG3OVQiEkoCjn2', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'NneQenEeOiy5hf5OM6gC')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'NneQenEeOiy5hf5OM6gC', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ONkf2XaNVlSgLSI2TkMK')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ONkf2XaNVlSgLSI2TkMK', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T18:45:24.520Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Q784D3GiN07xwOuYxWI3')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Q784D3GiN07xwOuYxWI3', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T18:50:11.237Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'RRJyfKFyGl8uCIJi9LEf')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'RRJyfKFyGl8uCIJi9LEf', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Ra3hMRAAMCpLgUyvXG9q')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Ra3hMRAAMCpLgUyvXG9q', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'TlO5ZfzAqJlp9xeRJuoJ')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'TlO5ZfzAqJlp9xeRJuoJ', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'UWgsNwRngoYrLLUli1rx')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'UWgsNwRngoYrLLUli1rx', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T18:47:55.617Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'UlRxzKE6N1TX15menxXl')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'UlRxzKE6N1TX15menxXl', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T19:36:35.550Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'V2hSphQB9iViIDUrDdfy')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'V2hSphQB9iViIDUrDdfy', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'VZ2HoO0W1U56VqEpKh2R')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'VZ2HoO0W1U56VqEpKh2R', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T20:02:10.495Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'WJFqJXmZaJRTtrpRLejF')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'WJFqJXmZaJRTtrpRLejF', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'WkGPtumqm29ydY80Bmcq')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'WkGPtumqm29ydY80Bmcq', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'YcRJxmAL4psoCjDWmxDB')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'YcRJxmAL4psoCjDWmxDB', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'Z7hJpG3ibSxtImULwgkH')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'Z7hJpG3ibSxtImULwgkH', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ZiNH2zFfy2fHwg6uEw8O')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ZiNH2zFfy2fHwg6uEw8O', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ZtgZAHlP8Y7Kk8x0vZyA')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ZtgZAHlP8Y7Kk8x0vZyA', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'bn6AhhKTZlSWbHo1asXU')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'bn6AhhKTZlSWbHo1asXU', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'bsOQe0GVywhcQrOMXZws')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'bsOQe0GVywhcQrOMXZws', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'cZOVZsIjxjcSSQGBc5qf')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'cZOVZsIjxjcSSQGBc5qf', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T18:49:47.853Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ddZJM0zLpMnnP04Q30D4')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ddZJM0zLpMnnP04Q30D4', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'dx5lGHUP8sckOORaVn1f')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'dx5lGHUP8sckOORaVn1f', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'eu9jFCJbkH6r9zvX9ugR')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'eu9jFCJbkH6r9zvX9ugR', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'hjLgXZ790NjJNuueNUMW')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'hjLgXZ790NjJNuueNUMW', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T19:32:34.236Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'hwUv2TIYNgpOD2On1a4D')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'hwUv2TIYNgpOD2On1a4D', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'iY4QEb2gJbEXi6ymTnfH')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'iY4QEb2gJbEXi6ymTnfH', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'joI7wok0sfzeNwtiP3QY')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'joI7wok0sfzeNwtiP3QY', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'klaJWFKpDACkcmRAgO6K')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'klaJWFKpDACkcmRAgO6K', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T18:46:52.753Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'mgXZ8Cth6F6va94KkiGf')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'mgXZ8Cth6F6va94KkiGf', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'mnSvJ0D6azoRlmxWVmCH')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'mnSvJ0D6azoRlmxWVmCH', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'mru5SZHtLsV7Q9OXgJnF')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'mru5SZHtLsV7Q9OXgJnF', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T18:59:38.511Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'pAFwZCbUl7kjcKE4Fy2M')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'pAFwZCbUl7kjcKE4Fy2M', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'pDrPQ8rvUd48Kivcpg7r')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'pDrPQ8rvUd48Kivcpg7r', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'pM2KXQd8jm7HIBTqOn8Y')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'pM2KXQd8jm7HIBTqOn8Y', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'sC9EWzQQeD2heJstXPbW')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'sC9EWzQQeD2heJstXPbW', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T19:05:38.370Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'sj5AMsFdMkKGWLZCNgT7')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'sj5AMsFdMkKGWLZCNgT7', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'skaCV9G9QrWe3AS1wbRK')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'skaCV9G9QrWe3AS1wbRK', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'spIrCDZ924QZU4cZDmvK')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'spIrCDZ924QZU4cZDmvK', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T19:22:24.274Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'uKr3RZwEhdatQ8Gnm9bd')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'uKr3RZwEhdatQ8Gnm9bd', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'Double Double', N'Evan , Alex', N'Double Double', N'Evan , Alex', N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'wVxWFaXYDZlGUGfGjt3L')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'wVxWFaXYDZlGUGfGjt3L', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T18:46:41.030Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'xfuwoxvsQ2UMydCglpCq')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'xfuwoxvsQ2UMydCglpCq', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'y9OGZcwzS1iT7QIGmvny')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'y9OGZcwzS1iT7QIGmvny', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'None/Tie', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'yIf8DPNsH7eMv8VlGvlk')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'yIf8DPNsH7eMv8VlGvlk', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'Double Double', N'Evan , Alex', N'TBD', NULL, NULL);
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'ycYqcacBlrqS2yz8Swsf')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'ycYqcacBlrqS2yz8Swsf', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T19:14:36.283Z');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_matches WHERE match_id = N'yqGZal4limEidMRnMCLS')
+    INSERT INTO dbo.fact_matches (match_id, tournament_id, division, stage_type, team1_name, team1_players, team2_name, team2_players, winner_team, winner_players, played_at) VALUES (N'yqGZal4limEidMRnMCLS', N'b8NgdlSsnwVm7ku98pPr', N'Only one', N'bracket', N'TBD', NULL, N'TBD', NULL, N'TBD', NULL, N'2026-10-03T19:22:46.930Z');
+GO
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'0rohac8GbFlJX3SwFjc2' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'0rohac8GbFlJX3SwFjc2', 1, 11, 21, 10, N'The Good Setmaritans');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'6hMksqwA3qIgWcy9Cucb' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'6hMksqwA3qIgWcy9Cucb', 1, 12, 21, 9, N'Fishers of men');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'6xnQBzw1TQcp5iuiuBS4' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'6xnQBzw1TQcp5iuiuBS4', 1, 15, 21, 6, N'Eon');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'6xnQBzw1TQcp5iuiuBS4' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'6xnQBzw1TQcp5iuiuBS4', 2, 15, 21, 6, N'Eon');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'A0zo3oruWCEuYVz434DC' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'A0zo3oruWCEuYVz434DC', 1, 21, 15, 6, N'The Good Setmaritans');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'AMDqvVoiCT9cluDVwhh1' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'AMDqvVoiCT9cluDVwhh1', 1, 21, 15, 6, N'Fishers of men');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'AMDqvVoiCT9cluDVwhh1' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'AMDqvVoiCT9cluDVwhh1', 2, 21, 12, 9, N'Fishers of men');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'Cy7vwbrki42NCeu3RsEm' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'Cy7vwbrki42NCeu3RsEm', 1, 21, 12, 9, N'Fishers of men');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'Cy7vwbrki42NCeu3RsEm' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'Cy7vwbrki42NCeu3RsEm', 2, 21, 16, 5, N'Fishers of men');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'DAq2GT7ORBMOSFMONl68' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'DAq2GT7ORBMOSFMONl68', 1, 19, 21, 2, N'Eon');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'DAq2GT7ORBMOSFMONl68' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'DAq2GT7ORBMOSFMONl68', 2, 21, 17, 4, N'Banziger Fan Club');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'DAq2GT7ORBMOSFMONl68' AND game_number = 3)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'DAq2GT7ORBMOSFMONl68', 3, 19, 21, 2, N'Eon');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'DLoAxBkjuozxVEV1rKJR' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'DLoAxBkjuozxVEV1rKJR', 1, 21, 15, 6, N'The Good Setmaritans');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'DxPYAFQIsX5EyL202E3a' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'DxPYAFQIsX5EyL202E3a', 1, 21, 10, 11, N'Andricko');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'EPmhTU3mcX5fRtFoxvV5' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'EPmhTU3mcX5fRtFoxvV5', 1, 22, 24, 2, N'Andricko');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'EjdaSS2021DP1i1dgj8V' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'EjdaSS2021DP1i1dgj8V', 1, 21, 18, 3, N'Andricko');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'EjdaSS2021DP1i1dgj8V' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'EjdaSS2021DP1i1dgj8V', 2, 10, 21, 11, N'BBQ Chicken');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'EjdaSS2021DP1i1dgj8V' AND game_number = 3)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'EjdaSS2021DP1i1dgj8V', 3, 14, 21, 7, N'BBQ Chicken');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'FAgNF0ODvYpbH8iyknke' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'FAgNF0ODvYpbH8iyknke', 1, 21, 14, 7, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'FAgNF0ODvYpbH8iyknke' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'FAgNF0ODvYpbH8iyknke', 2, 21, 13, 8, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'HfiQ1fUMfXoyiVgnhW43' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'HfiQ1fUMfXoyiVgnhW43', 1, 21, 8, 13, N'Team Name');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'I2loWsb8wpgpr4iOirOT' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'I2loWsb8wpgpr4iOirOT', 1, 12, 21, 9, N'Fishers of men');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'I2loWsb8wpgpr4iOirOT' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'I2loWsb8wpgpr4iOirOT', 2, 13, 21, 8, N'Fishers of men');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'Jz1QilO3ZfdarI9RpPJf' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'Jz1QilO3ZfdarI9RpPJf', 1, 18, 21, 3, N'Andricko');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'OhVVqALDtDrWU6oPWkzD' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'OhVVqALDtDrWU6oPWkzD', 1, 21, 18, 3, N'Banziger Fan Club');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'OhVVqALDtDrWU6oPWkzD' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'OhVVqALDtDrWU6oPWkzD', 2, 26, 24, 2, N'Banziger Fan Club');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'Oqwt9WNlsGUsjuJJ0fqU' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'Oqwt9WNlsGUsjuJJ0fqU', 1, 21, 10, 11, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'SsDtv2GHvFXCGCwxiazg' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'SsDtv2GHvFXCGCwxiazg', 1, 21, 9, 12, N'Eon');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'SsDtv2GHvFXCGCwxiazg' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'SsDtv2GHvFXCGCwxiazg', 2, 21, 15, 6, N'Eon');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'T6oF0SwycNkkbQqLNg4J' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'T6oF0SwycNkkbQqLNg4J', 1, 21, 18, 3, N'Team Name');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'T6oF0SwycNkkbQqLNg4J' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'T6oF0SwycNkkbQqLNg4J', 2, 21, 14, 7, N'Team Name');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'U5g7Bg5o21KiscVOJwrB' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'U5g7Bg5o21KiscVOJwrB', 1, 21, 13, 8, N'Team Name');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'WVXTY3TXzyUor0O3WFQt' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'WVXTY3TXzyUor0O3WFQt', 1, 0, 1, 1, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'WVXTY3TXzyUor0O3WFQt' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'WVXTY3TXzyUor0O3WFQt', 2, 0, 1, 1, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ZPsOaq6bZW6XqSQHzHPB' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ZPsOaq6bZW6XqSQHzHPB', 1, 21, 7, 14, N'BBQ Chicken');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ZbZP49bXTAuth0r9D1Ag' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ZbZP49bXTAuth0r9D1Ag', 1, 21, 18, 3, N'The Good Setmaritans');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ZbZP49bXTAuth0r9D1Ag' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ZbZP49bXTAuth0r9D1Ag', 2, 13, 21, 8, N'Banziger Fan Club');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ZbZP49bXTAuth0r9D1Ag' AND game_number = 3)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ZbZP49bXTAuth0r9D1Ag', 3, 10, 21, 11, N'Banziger Fan Club');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'anxqmydpdEmoIW76Xy5S' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'anxqmydpdEmoIW76Xy5S', 1, 21, 7, 14, N'Eon');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'bzWG9tq8ep52jupLojyO' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'bzWG9tq8ep52jupLojyO', 1, 18, 21, 3, N'Team Name');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'bzWG9tq8ep52jupLojyO' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'bzWG9tq8ep52jupLojyO', 2, 18, 21, 3, N'Team Name');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'cFPSOrBt6ucaLdxWZJl6' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'cFPSOrBt6ucaLdxWZJl6', 1, 21, 8, 13, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'db8Nm0Kowr4ilIReukNd' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'db8Nm0Kowr4ilIReukNd', 1, 21, 9, 12, N'Fishers of men');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'dqV5zg7ZO7hkIcpSeRE7' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'dqV5zg7ZO7hkIcpSeRE7', 1, 21, 10, 11, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'fOpL1SG4rNmqlhbi2hpu' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'fOpL1SG4rNmqlhbi2hpu', 1, 21, 18, 3, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'hhaqUmlKecdBSFDlL1tY' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'hhaqUmlKecdBSFDlL1tY', 1, 21, 19, 2, N'Andricko');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'iXdMYj4dYWu0fT1GQiC0' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'iXdMYj4dYWu0fT1GQiC0', 1, 21, 12, 9, N'Team Name');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'mj0obnath4dVkIMAT3z4' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'mj0obnath4dVkIMAT3z4', 1, 21, 7, 14, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'oxNexh4LMnBZhZ9rOwIW' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'oxNexh4LMnBZhZ9rOwIW', 1, 21, 8, 13, N'Banziger Fan Club');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'rU19cAp6uGat32yIT05Y' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'rU19cAp6uGat32yIT05Y', 1, 21, 6, 15, N'BBQ Chicken');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'rU19cAp6uGat32yIT05Y' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'rU19cAp6uGat32yIT05Y', 2, 23, 21, 2, N'BBQ Chicken');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'sl6B4H71cjL1UpvF57ER' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'sl6B4H71cjL1UpvF57ER', 1, 18, 21, 3, N'Eon');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N't4V3fl3TqGWExqtys4hV' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N't4V3fl3TqGWExqtys4hV', 1, 21, 9, 12, N'Carver/Nelson');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'vDkmWBSdN8dCtN4ETTWd' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'vDkmWBSdN8dCtN4ETTWd', 1, 21, 16, 5, N'Fishers of men');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'y2u50BtUgcm0crCp4T2u' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'y2u50BtUgcm0crCp4T2u', 1, 15, 21, 6, N'BBQ Chicken');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'zzBXxFm1BCxX5Ll2llgx' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'zzBXxFm1BCxX5Ll2llgx', 1, 21, 7, 14, N'Fishers of men');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'1n7jiK9g1ypvFH094NX5' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'1n7jiK9g1ypvFH094NX5', 1, 15, 2, 13, N'Bleed Blue');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'2PXFZAwIFnuQiBxnngpa' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'2PXFZAwIFnuQiBxnngpa', 1, 21, 15, 6, N'Carpy parti');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'52pFK0lTWiBQNHwwNZdn' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'52pFK0lTWiBQNHwwNZdn', 1, 21, 6, 15, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'5UfGe15t2ORGtnhpTEgo' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'5UfGe15t2ORGtnhpTEgo', 1, 21, 0, 21, N'David and walker');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'60mCkdWHxfCJwMWfWPHj' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'60mCkdWHxfCJwMWfWPHj', 1, 21, 18, 3, N'Lord Quad Fault');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'6eIAMNTM68ietz6dGdRe' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'6eIAMNTM68ietz6dGdRe', 1, 21, 11, 10, N'belt');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'6k4FVlX4tPkcDbJVlZQO' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'6k4FVlX4tPkcDbJVlZQO', 1, 18, 21, 3, N'Biddleations 3:67');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'79QEz88dSZ6wRpI09Ppv' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'79QEz88dSZ6wRpI09Ppv', 1, 1, 0, 1, N'Cincedo');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'83sKaEUCEPBqtfg7OsEy' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'83sKaEUCEPBqtfg7OsEy', 1, 5, 15, 10, N'Chumps');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'8O5patc0IdFee3rZyQ8C' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'8O5patc0IdFee3rZyQ8C', 1, 21, 10, 11, N'Frog & Toad');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'8RMAFEn5lgLwUMY4PFZ2' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'8RMAFEn5lgLwUMY4PFZ2', 1, 15, 13, 2, N'Chumps');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'8RSb4KjrzrJG0293LBHL' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'8RSb4KjrzrJG0293LBHL', 1, 13, 15, 2, N'Lex boys');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'BB1lvWxlApXcJGnGYSmD' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'BB1lvWxlApXcJGnGYSmD', 1, 21, 8, 13, N'Bleed Blue');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'BpZuiqB8vKEujftwFH4l' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'BpZuiqB8vKEujftwFH4l', 1, 19, 21, 2, N'Uc spike');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'D1j0dvsshbqOT6FD2rv6' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'D1j0dvsshbqOT6FD2rv6', 1, 21, 15, 6, N'Iceman');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'D1j0dvsshbqOT6FD2rv6' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'D1j0dvsshbqOT6FD2rv6', 2, 21, 10, 11, N'Iceman');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'DaCIhJxpKjxyw4JtmXxt' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'DaCIhJxpKjxyw4JtmXxt', 1, 15, 6, 9, N'Iceman');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'EB1r3S42qOKSTNx049uG' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'EB1r3S42qOKSTNx049uG', 1, 21, 13, 8, N'Past & Present');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'EIsNxBhm4rFPr8O5CQZJ' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'EIsNxBhm4rFPr8O5CQZJ', 1, 21, 14, 7, N'Carpy parti');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'FUK8q2ucL4u4NX7K98ED' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'FUK8q2ucL4u4NX7K98ED', 1, 24, 22, 2, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'FUK8q2ucL4u4NX7K98ED' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'FUK8q2ucL4u4NX7K98ED', 2, 21, 10, 11, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'FWww7YqEhq9bta6ZVxlq' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'FWww7YqEhq9bta6ZVxlq', 1, 15, 10, 5, N'Carpy parti');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'Fhm8lldHFJBLFyp1ONBg' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'Fhm8lldHFJBLFyp1ONBg', 1, 16, 21, 5, N'🧨🧨🧨🧨');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'FqdVidicjrJrIFIWedi0' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'FqdVidicjrJrIFIWedi0', 1, 18, 21, 3, N'Double Trouble');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'Fu0ykQz1xRdDenuOSQdV' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'Fu0ykQz1xRdDenuOSQdV', 1, 15, 4, 11, N'Iceman');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'FyR3O9b5evzkIbx50Ujm' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'FyR3O9b5evzkIbx50Ujm', 1, 10, 1, 9, N'Carpy parti');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'FyR3O9b5evzkIbx50Ujm' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'FyR3O9b5evzkIbx50Ujm', 2, 10, 1, 9, N'Carpy parti');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'FyR3O9b5evzkIbx50Ujm' AND game_number = 3)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'FyR3O9b5evzkIbx50Ujm', 3, 0, 1, 1, N'David and walker');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'GEe0RBqcfypgELGZFrkF' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'GEe0RBqcfypgELGZFrkF', 1, 21, 15, 6, N'belt');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'GJ8GRQjj28OpWXSkZbwF' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'GJ8GRQjj28OpWXSkZbwF', 1, 25, 24, 1, N'Cincedo');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'H2vjSvOLgEyCO0ZqFjuA' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'H2vjSvOLgEyCO0ZqFjuA', 1, 16, 14, 2, N'Aiden and Kylie');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'H5XotdKiQQOCAO0o5YpX' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'H5XotdKiQQOCAO0o5YpX', 1, 21, 17, 4, N'Chumps');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'H5XotdKiQQOCAO0o5YpX' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'H5XotdKiQQOCAO0o5YpX', 2, 17, 21, 4, N'Bleed Blue');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'H5XotdKiQQOCAO0o5YpX' AND game_number = 3)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'H5XotdKiQQOCAO0o5YpX', 3, 21, 19, 2, N'Chumps');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'Hfw3TOkeZwqksh7wsXFQ' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'Hfw3TOkeZwqksh7wsXFQ', 1, 12, 15, 3, N'norse Baja');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'I1ahrNoxu1pVs3KBdNlM' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'I1ahrNoxu1pVs3KBdNlM', 1, 21, 14, 7, N'David and walker');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'K5cw1XmV6sDhEp2g2EZK' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'K5cw1XmV6sDhEp2g2EZK', 1, 6, 21, 15, N'Frog & Toad');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'K6uUMXyRkozefxYJwpJS' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'K6uUMXyRkozefxYJwpJS', 1, 6, 15, 9, N'Bleed Blue');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'KZViEZrcAgIGg8SMqqUy' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'KZViEZrcAgIGg8SMqqUy', 1, 1, 0, 1, N'“Is there dairy in that?”');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'KZViEZrcAgIGg8SMqqUy' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'KZViEZrcAgIGg8SMqqUy', 2, 1, 0, 1, N'“Is there dairy in that?”');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'NEhYurJwdtJpxWrv7LWk' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'NEhYurJwdtJpxWrv7LWk', 1, 1, 0, 1, N'We bring the boom');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'PpfNG0EqhP4Xrq1Vztdz' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'PpfNG0EqhP4Xrq1Vztdz', 1, 21, 18, 3, N'Uc spike');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'PqsfT1DqFvjFZRxnjy62' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'PqsfT1DqFvjFZRxnjy62', 1, 21, 15, 6, N'The Chiang Dynasty');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'QD35m2LpYY4Suo3pq7mJ' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'QD35m2LpYY4Suo3pq7mJ', 1, 5, 15, 10, N'Iceman');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'QeVwJuuJmlPR8KNZGnbg' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'QeVwJuuJmlPR8KNZGnbg', 1, 21, 9, 12, N'The Chiang Dynasty');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'RsefnkVDkwdrHpsxo1oG' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'RsefnkVDkwdrHpsxo1oG', 1, 21, 15, 6, N'Lex boys');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'SLZSCYWMQXC9kwPbpSNl' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'SLZSCYWMQXC9kwPbpSNl', 1, 21, 5, 16, N'“Is there dairy in that?”');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'SflAWTaq2nUxwhQ51QTq' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'SflAWTaq2nUxwhQ51QTq', 1, 21, 10, 11, N'We bring the boom');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'SuSC208Kw2OAcSOiXbZL' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'SuSC208Kw2OAcSOiXbZL', 1, 10, 15, 5, N'Lex boys');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'TDA7cOmXXf0EO8MveGTq' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'TDA7cOmXXf0EO8MveGTq', 1, 1, 0, 1, N'Past & Present');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'UNfxCor8cL3z2LmdbJmJ' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'UNfxCor8cL3z2LmdbJmJ', 1, 15, 10, 5, N'Chumps');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'URuO2IDQMhhHsgCPU7MY' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'URuO2IDQMhhHsgCPU7MY', 1, 17, 21, 4, N'The Chiang Dynasty');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'VQND159ogHcPhgnla7yi' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'VQND159ogHcPhgnla7yi', 1, 12, 15, 3, N'Iceman');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'VxeWD1WtlRlUUJgfTk46' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'VxeWD1WtlRlUUJgfTk46', 1, 17, 21, 4, N'David and walker');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'WB8un7XCtkp6UjuFzDrA' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'WB8un7XCtkp6UjuFzDrA', 1, 21, 10, 11, N'Iceman');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'WB8un7XCtkp6UjuFzDrA' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'WB8un7XCtkp6UjuFzDrA', 2, 21, 8, 13, N'Iceman');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'WD3YxUZS2oyNtEJiA2xw' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'WD3YxUZS2oyNtEJiA2xw', 1, 21, 10, 11, N'We bring the boom');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'Wb4DjgM1ZnlycBTP8LRD' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'Wb4DjgM1ZnlycBTP8LRD', 1, 14, 21, 7, N'Frog & Toad');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'X1HbiQjO4CnzGkgfgYyR' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'X1HbiQjO4CnzGkgfgYyR', 1, 14, 21, 7, N'🧨🧨🧨🧨');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'X1kW0voSFWL0AGfnF8FF' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'X1kW0voSFWL0AGfnF8FF', 1, 21, 8, 13, N'David and walker');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'XDdoxBPRhMPGfoiYcvgK' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'XDdoxBPRhMPGfoiYcvgK', 1, 1, 0, 1, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'XDdoxBPRhMPGfoiYcvgK' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'XDdoxBPRhMPGfoiYcvgK', 2, 1, 0, 1, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'YREC3PJx6sRhsIZb1J6Y' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'YREC3PJx6sRhsIZb1J6Y', 1, 21, 14, 7, N'Carpy parti');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ZaGauJdOesV4STiP1lpl' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ZaGauJdOesV4STiP1lpl', 1, 0, 1, 1, N'The Chiang Dynasty');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ZrIZhGpAmpRQo3aZ60zB' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ZrIZhGpAmpRQo3aZ60zB', 1, 21, 19, 2, N'Past & Present');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ZsLFVR24zknWqEvrboma' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ZsLFVR24zknWqEvrboma', 1, 14, 21, 7, N'Frog & Toad');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ZwpnBxSCDt8slAHqhMpV' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ZwpnBxSCDt8slAHqhMpV', 1, 21, 7, 14, N'Team Blackburn');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'bBcQkf2XKmo2W1ngWkbq' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'bBcQkf2XKmo2W1ngWkbq', 1, 21, 12, 9, N'Frog & Toad');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'bffkEWyziCvULkC5oyvl' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'bffkEWyziCvULkC5oyvl', 1, 17, 21, 4, N'norse Baja');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'cJbvFu9ipHZZKbtTiQT0' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'cJbvFu9ipHZZKbtTiQT0', 1, 21, 10, 11, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'cKAniTK5yTANHRZWoakH' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'cKAniTK5yTANHRZWoakH', 1, 1, 0, 1, N'“Is there dairy in that?”');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'eKxMrHiGWIKIxaUhXHkh' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'eKxMrHiGWIKIxaUhXHkh', 1, 21, 8, 13, N'Holy Spikes');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'eaoC7RSYKiNvJfmKS1B5' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'eaoC7RSYKiNvJfmKS1B5', 1, 2, 15, 13, N'Iceman');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'f2bzfIXcazaik4b4rc4h' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'f2bzfIXcazaik4b4rc4h', 1, 14, 21, 7, N'Who do you think you are❓ I AM❗️');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ff12g3lO95wwHO0wbinI' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ff12g3lO95wwHO0wbinI', 1, 5, 21, 16, N'Spikological Warfare');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'gO7JxAvrio9TmhIa5Yqx' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'gO7JxAvrio9TmhIa5Yqx', 1, 9, 21, 12, N'Uc spike');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'gRU5VTYwm8WKG4ALQbkT' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'gRU5VTYwm8WKG4ALQbkT', 1, 21, 10, 11, N'Holy Spikes');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'h91PiProJHZQgNOePxaj' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'h91PiProJHZQgNOePxaj', 1, 16, 21, 5, N'Double Trouble');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'hGilTpTwud9wbYnOGgkZ' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'hGilTpTwud9wbYnOGgkZ', 1, 1, 0, 1, N'Carpy parti');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ij0fSR1zb9Q7ceRX0L36' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ij0fSR1zb9Q7ceRX0L36', 1, 1, 0, 1, N'Double Trouble');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'j11c2CKL7x73ybuE5VKj' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'j11c2CKL7x73ybuE5VKj', 1, 23, 21, 2, N'Frog & Toad');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'kVXFl8H7c99tdzS2oZmE' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'kVXFl8H7c99tdzS2oZmE', 1, 21, 10, 11, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'knTT3zPzkFvT2tBcIL6C' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'knTT3zPzkFvT2tBcIL6C', 1, 21, 9, 12, N'Frog & Toad');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'knTT3zPzkFvT2tBcIL6C' AND game_number = 2)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'knTT3zPzkFvT2tBcIL6C', 2, 21, 11, 10, N'Frog & Toad');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'krshsJTGXrMErRGkzrET' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'krshsJTGXrMErRGkzrET', 1, 15, 12, 3, N'Chumps');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'lfrj3FWs44NJ6fUna1d6' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'lfrj3FWs44NJ6fUna1d6', 1, 27, 21, 6, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'oIhhNfKrkTn4k7CaPZ0Z' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'oIhhNfKrkTn4k7CaPZ0Z', 1, 15, 1, 14, N'Aiden and Kylie');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'rT65vpzsztK8sy7UD88y' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'rT65vpzsztK8sy7UD88y', 1, 21, 6, 15, N'Cincedo');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'rdaldv1cU0CgnupoN5bS' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'rdaldv1cU0CgnupoN5bS', 1, 18, 21, 3, N'“Is there dairy in that?”');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N't1XWoieRZw4H10nzmhj5' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N't1XWoieRZw4H10nzmhj5', 1, 16, 21, 5, N'The Chiang Dynasty');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'tUCeyvmfxt9Ie2FOC7Qp' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'tUCeyvmfxt9Ie2FOC7Qp', 1, 0, 1, 1, N'Past & Present');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'vR5dTpXIvbAcSHA8atHi' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'vR5dTpXIvbAcSHA8atHi', 1, 0, 1, 1, N'Carpy parti');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'xMGB1iZBpjqpave6RZir' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'xMGB1iZBpjqpave6RZir', 1, 1, 0, 1, N'Bleed Blue');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'xWBK64FeBDIGJpeDvLdo' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'xWBK64FeBDIGJpeDvLdo', 1, 13, 15, 2, N'norse Baja');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'yEhUjnVM1EDulnb4tTB1' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'yEhUjnVM1EDulnb4tTB1', 1, 1, 0, 1, N'Shred');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'z2nAYvtDsStKWENc2KMJ' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'z2nAYvtDsStKWENc2KMJ', 1, 20, 22, 2, N'The Chiang Dynasty');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'4kVSnzLHFxz3luxppLyh' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'4kVSnzLHFxz3luxppLyh', 1, 21, 10, 11, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'93S8aNbtR09mYBRdRnis' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'93S8aNbtR09mYBRdRnis', 1, 15, 21, 6, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'My0Le0eYlbBVfGI5s97r' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'My0Le0eYlbBVfGI5s97r', 1, 21, 18, 3, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ONkf2XaNVlSgLSI2TkMK' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ONkf2XaNVlSgLSI2TkMK', 1, 21, 10, 11, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'Q784D3GiN07xwOuYxWI3' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'Q784D3GiN07xwOuYxWI3', 1, 21, 5, 16, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'UWgsNwRngoYrLLUli1rx' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'UWgsNwRngoYrLLUli1rx', 1, 15, 21, 6, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'UlRxzKE6N1TX15menxXl' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'UlRxzKE6N1TX15menxXl', 1, 20, 22, 2, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'VZ2HoO0W1U56VqEpKh2R' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'VZ2HoO0W1U56VqEpKh2R', 1, 13, 21, 8, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'cZOVZsIjxjcSSQGBc5qf' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'cZOVZsIjxjcSSQGBc5qf', 1, 21, 9, 12, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'hjLgXZ790NjJNuueNUMW' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'hjLgXZ790NjJNuueNUMW', 1, 21, 14, 7, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'klaJWFKpDACkcmRAgO6K' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'klaJWFKpDACkcmRAgO6K', 1, 21, 18, 3, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'mru5SZHtLsV7Q9OXgJnF' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'mru5SZHtLsV7Q9OXgJnF', 1, 22, 24, 2, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'sC9EWzQQeD2heJstXPbW' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'sC9EWzQQeD2heJstXPbW', 1, 21, 17, 4, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'spIrCDZ924QZU4cZDmvK' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'spIrCDZ924QZU4cZDmvK', 1, 21, 19, 2, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'wVxWFaXYDZlGUGfGjt3L' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'wVxWFaXYDZlGUGfGjt3L', 1, 10, 21, 11, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'ycYqcacBlrqS2yz8Swsf' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'ycYqcacBlrqS2yz8Swsf', 1, 19, 21, 2, N'TBD');
+IF NOT EXISTS (SELECT 1 FROM dbo.fact_games WHERE match_id = N'yqGZal4limEidMRnMCLS' AND game_number = 1)
+    INSERT INTO dbo.fact_games (match_id, game_number, team1_score, team2_score, point_diff, game_winner) VALUES (N'yqGZal4limEidMRnMCLS', 1, 21, 11, 10, N'TBD');
+GO
